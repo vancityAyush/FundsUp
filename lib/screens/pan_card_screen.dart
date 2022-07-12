@@ -106,7 +106,10 @@ class _PanCardScreenState extends State<PanCardScreen> {
     return [
       Text(
         "Enter you PAN to continue",
-        style: Theme.of(context).textTheme.headline1,
+        style: BigHeaderStyle.copyWith(
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+        ),
       ),
       SizedBox(height: 36.0),
       Padding(
@@ -115,9 +118,9 @@ class _PanCardScreenState extends State<PanCardScreen> {
           key: _panFormKey,
           child: TextFormField(
             onSaved: (value) {
-              if (!_panRegex.hasMatch(value!)) {
-                throw Exception("Invalid PAN");
-              }
+              // if (!_panRegex.hasMatch(value!)) {
+              //   throw Exception("Invalid PAN");
+              // }
               panNumber = value;
             },
             validator: (value) {
@@ -137,16 +140,9 @@ class _PanCardScreenState extends State<PanCardScreen> {
             textAlign: TextAlign.center,
             decoration: InputDecoration(
               hintText: "ABCDE1234C",
-              hintStyle: TextStyle(
-                  fontSize: 26.0,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffC4C4C4),
-                  letterSpacing: 5),
+              hintStyle: headerStyle,
               border: UnderlineInputBorder(),
-              errorStyle: Theme.of(context)
-                  .textTheme
-                  .headline3!
-                  .copyWith(color: Colors.red),
+              errorStyle: headerStyle.copyWith(color: Colors.red),
             ),
             style: TextStyle(
                 fontSize: 26.0, fontWeight: FontWeight.w500, letterSpacing: 5),
@@ -160,13 +156,12 @@ class _PanCardScreenState extends State<PanCardScreen> {
     return [
       Text(
         "Entered PAN : $panNumber",
-        style: Theme.of(context).textTheme.headline1,
+        style: headerStyle,
       ),
       SizedBox(height: 10.0),
       Text(
         "Please Enter Your Date of Birth:",
-        style:
-            Theme.of(context).textTheme.headline3!.copyWith(color: Colors.grey),
+        style: headerStyle,
       ),
       SizedBox(height: 20.0),
       Padding(
@@ -233,10 +228,7 @@ class _PanCardScreenState extends State<PanCardScreen> {
           child: Text(
             "For HUF &  non-dividuals, enter date of\n incorporation",
             textAlign: TextAlign.start,
-            style: Theme.of(context)
-                .textTheme
-                .headline5!
-                .copyWith(color: Colors.grey),
+            style: bodyText,
           ),
         ),
       )

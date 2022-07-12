@@ -18,6 +18,9 @@ class ProfilePage extends StatelessWidget {
           height: 20,
         ),
         profileHeader(context),
+        SizedBox(
+          height: 20,
+        ),
         customListTile(context, title: "Personal Information"),
         // Card(
         //   child: ExpansionTile(
@@ -52,10 +55,7 @@ class ProfilePage extends StatelessWidget {
           ),
           child: Text(
             "Support",
-            style: Theme.of(context).textTheme.headline2!.copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: Theme.of(context).primaryColorLight,
-                ),
+            style: headerStyle,
           ),
         ),
         customListTile(context, title: "Notifications"),
@@ -73,10 +73,7 @@ class ProfilePage extends StatelessWidget {
             children: [
               Text(
                 "Help Us Grow",
-                style: Theme.of(context).textTheme.headline2!.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: Theme.of(context).primaryColorLight,
-                    ),
+                style: headerStyle,
               ),
               SizedBox(
                 height: 10,
@@ -97,6 +94,9 @@ class ProfilePage extends StatelessWidget {
                 "Follow us",
                 style: linkStyle,
               ),
+              SizedBox(
+                height: 15,
+              ),
               Text(
                 "About FundsUp",
                 style: linkStyle,
@@ -108,9 +108,12 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
         ),
-        GestureDetector(
-          onTap: () => Navigator.pushNamed(context, "/splash"),
-          child: customListTile(context, title: "Logout"),
+        MaterialButton(
+          onPressed: () => Navigator.pushNamed(context, "/splash"),
+          child: Text(
+            "LOGOUT",
+            style: headerStyle.copyWith(fontSize: 15),
+          ),
         ),
       ],
     );
@@ -134,22 +137,20 @@ class ProfilePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Vinit Garg",
+                  "Vinit Garg".toUpperCase(),
                   style: headerStyle,
                 ),
-                IconButton(
-                  icon: Icon(
-                    Icons.edit,
-                    color: Theme.of(context).primaryColorLight,
-                  ),
-                  onPressed: () {},
-                ),
+                Icon(
+                  Icons.edit,
+                  color: Theme.of(context).primaryColorLight,
+                  size: 20,
+                )
               ],
             ),
             Row(
               children: [
                 Text(
-                  "+91-8050042000 |",
+                  "+91-8050042000   |  ",
                   style: gridTextBold,
                 ),
                 VerticalDivider(
@@ -157,7 +158,7 @@ class ProfilePage extends StatelessWidget {
                   color: Theme.of(context).primaryColorLight,
                 ),
                 Text(
-                  "Vinit.garg@yahoo.com",
+                  "Vinit.garg@yahoo.com".toLowerCase(),
                   style: gridTextBold.copyWith(color: Colors.blue),
                 )
               ],
@@ -166,7 +167,9 @@ class ProfilePage extends StatelessWidget {
               height: 20,
             ),
             LinearProgressIndicator(
-              value: 0.5,
+              color: greenColor,
+              backgroundColor: Colors.grey[200],
+              value: 0.4,
             ),
             SizedBox(
               height: 5,
@@ -188,7 +191,7 @@ class ProfilePage extends StatelessWidget {
               onPressed: () {},
               color: Theme.of(context).primaryColorLight,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
                 "COMPLETE REGISTRATION",
@@ -211,12 +214,13 @@ class ProfilePage extends StatelessWidget {
       elevation: 2,
       color: Colors.white,
       child: ListTile(
+        leading: Icon(
+          Icons.account_circle,
+          color: Theme.of(context).primaryColorLight,
+        ),
         title: Text(
           title,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 14,
-          ),
+          style: bodyText,
         ),
         trailing: Icon(
           Icons.arrow_forward_ios_outlined,

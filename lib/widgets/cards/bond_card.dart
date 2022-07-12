@@ -19,7 +19,9 @@ class BondCard extends StatelessWidget {
     return CustomCard(
       header: Text(
         "James Bond",
-        style: headerStyle,
+        style: headerStyle.copyWith(
+          fontSize: 20,
+        ),
       ),
       child: CurrentValueGrid(BondData),
     );

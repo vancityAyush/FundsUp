@@ -9,19 +9,25 @@ class CustomCard extends StatelessWidget {
   final Widget header;
   final double padding;
   final double? elevation;
+  final BorderSide border;
+  final Color? color;
   const CustomCard(
       {Key? key,
-      this.elevation = 2,
+      this.elevation = 3,
       required this.child,
       required this.header,
+      this.color,
+      this.border = BorderSide.none,
       this.padding = 12})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: color,
       elevation: elevation,
       shape: RoundedRectangleBorder(
+        side: border,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(

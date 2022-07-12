@@ -4,7 +4,6 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
-import 'package:fundsup/utils/widget_helper.dart';
 import 'package:fundsup/widgets/cards/bond_card.dart';
 import 'package:fundsup/widgets/custom_card.dart';
 import 'package:fundsup/widgets/graph_slider.dart';
@@ -54,42 +53,55 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-      padding: EdgeInsets.symmetric(horizontal: 12),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           BondCard(),
+          SizedBox(
+            height: 5,
+          ),
           GraphSlider(),
           TrackExt(),
+          SizedBox(
+            height: 5,
+          ),
           CustomCard(
-              header: T3(
+              header: Text(
                 "Get Investment Ready: Your Investment account is not ready. Please add the remaining details and start investing with FundsUp instantly",
+                style: bodyText2,
               ),
               elevation: 2,
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Icon(
                         Icons.account_circle,
                         size: 30,
                         color: Theme.of(context).primaryColorLight,
                       ),
+                      Spacer(
+                        flex: 1,
+                      ),
                       Text(
                         "Vinit Garg",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 12,
+                          fontSize: 14,
                         ),
+                      ),
+                      Spacer(
+                        flex: 10,
                       ),
                       TextButton(
                         onPressed: () {},
                         child: Text(
                           "Complete Registration",
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 11,
                             color: Colors.blueAccent,
                             fontWeight: FontWeight.w400,
                           ),
@@ -98,26 +110,32 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Icon(
                         Icons.account_circle,
                         size: 30,
                         color: Theme.of(context).primaryColorLight,
                       ),
+                      Spacer(
+                        flex: 1,
+                      ),
                       Text(
                         "Vinit Garg",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 12,
+                          fontSize: 14,
                         ),
+                      ),
+                      Spacer(
+                        flex: 10,
                       ),
                       TextButton(
                         onPressed: () {},
                         child: Text(
                           "Complete Registration",
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 11,
                             color: Colors.blueAccent,
                             fontWeight: FontWeight.w400,
                           ),
@@ -127,27 +145,35 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               )),
+          SizedBox(
+            height: 5,
+          ),
           MonthlyInvestment(),
+          SizedBox(
+            height: 5,
+          ),
           CustomCard(
-            header: Text(
-              "Explore Funds",
-              style: headerStyle,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) => Text(
-                  "${funds[index]}",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12,
-                    height: 1.5,
+            header: Column(
+              children: [
+                Text(
+                  "Explore Funds",
+                  style: headerStyle.copyWith(
+                    color: blueColor,
                   ),
+                  //search bar
                 ),
-                itemCount: funds.length,
+              ],
+            ),
+            child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (context, index) => Text(
+                "${funds[index]}",
+                style: bodyText2.copyWith(
+                  height: 1.2,
+                ),
               ),
+              itemCount: funds.length,
             ),
           ),
         ],

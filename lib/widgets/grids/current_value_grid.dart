@@ -20,27 +20,36 @@ class CurrentValueGrid extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Current Value" + data.date,
               style: gridText,
             ),
+            SizedBox(
+              height: 2,
+            ),
             Text(
               data.current,
               style: gridTextBold,
             ),
             SizedBox(
-              height: 5,
+              height: 6,
             ),
             Text(
               "All Time Return",
               style: gridText,
             ),
+            SizedBox(
+              height: 2,
+            ),
             Text(
               data.all,
               style: gridTextBold,
+            ),
+            SizedBox(
+              height: 2,
             ),
             Text(
               data.XIRR,
@@ -56,20 +65,29 @@ class CurrentValueGrid extends StatelessWidget {
               "Invested",
               style: gridText,
             ),
+            SizedBox(
+              height: 2,
+            ),
             Text(
               data.invested,
               style: gridTextBold,
             ),
             SizedBox(
-              height: 5,
+              height: 6,
             ),
             Text(
               "1 Day Return ",
               style: gridText,
             ),
+            SizedBox(
+              height: 2,
+            ),
             Text(
               data.one,
               style: gridTextBold,
+            ),
+            SizedBox(
+              height: 2,
             ),
             Text(
               data.nXIRR,

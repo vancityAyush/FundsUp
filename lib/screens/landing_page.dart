@@ -13,7 +13,7 @@ import 'package:fundsup/widgets/logo_widget.dart';
 
 class LandingPage extends StatefulWidget {
   int selectedIndex;
-  LandingPage({this.selectedIndex = 0});
+  LandingPage({this.selectedIndex = 1});
 
   @override
   State<LandingPage> createState() => _LandingPageState();
@@ -30,7 +30,7 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFDFCFC),
+      backgroundColor: Color.fromRGBO(241, 243, 244, 1),
       appBar: AppBar(
         title: LogoWidget(
           scale: 1.2,
@@ -42,6 +42,15 @@ class _LandingPageState extends State<LandingPage> {
       body: SafeArea(
         child: _pages[widget.selectedIndex],
       ),
+      floatingActionButton: widget.selectedIndex == 1
+          ? FloatingActionButton(
+              onPressed: () {
+                //TODO take to search page
+              },
+              child: Icon(Icons.search),
+              backgroundColor: greenColor,
+            )
+          : Container(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: widget.selectedIndex,
@@ -50,9 +59,9 @@ class _LandingPageState extends State<LandingPage> {
             widget.selectedIndex = index;
           });
         },
-        selectedFontSize: 14,
+        selectedFontSize: 10,
         selectedIconTheme: IconThemeData(
-          size: 24,
+          size: 20,
         ),
         unselectedFontSize: 10,
         unselectedIconTheme: IconThemeData(

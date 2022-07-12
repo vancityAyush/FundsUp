@@ -31,11 +31,14 @@ class IntroScreen extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   text: "Accept",
-                  style: Theme.of(context).textTheme.headline1,
+                  style: BigHeaderStyle.copyWith(fontSize: 30),
                   children: [
                     TextSpan(
                       text: " incoming\nMultiple Source",
-                      style: Theme.of(context).textTheme.headline2,
+                      style: BigHeaderStyle.copyWith(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
@@ -48,7 +51,9 @@ class IntroScreen extends StatelessWidget {
               padding: sidePadding,
               child: Text(
                 "Recommended features  for the  assignment\nof orders to trucks and drivers available\nnearby",
-                style: Theme.of(context).textTheme.headline3,
+                style: subHeader.copyWith(
+                  fontSize: 18,
+                ),
               ),
             ),
             Spacer(

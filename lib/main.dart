@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Funds Up',
       theme: ThemeData(
-        fontFamily: 'Graphikapp',
+        fontFamily: 'Helvitica',
         primaryColor: blueColor,
         primaryColorLight: greenColor,
       ),

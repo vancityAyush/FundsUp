@@ -19,40 +19,38 @@ class PieChartSample1State extends State {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.3,
+      aspectRatio: 4 / 2,
       child: Column(
         children: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Indicator(
                 color: const Color(0xff0293ee),
                 text: 'Category Wise',
                 isSquare: false,
-                size: touchedIndex == 0 ? 18 : 16,
+                size: touchedIndex == 0 ? 10 : 8,
                 textColor: touchedIndex == 0 ? Colors.black : Colors.grey,
               ),
               Indicator(
                 color: const Color(0xfff8b250),
                 text: 'Liquidity Wise',
                 isSquare: false,
-                size: touchedIndex == 1 ? 18 : 16,
+                size: touchedIndex == 1 ? 10 : 8,
                 textColor: touchedIndex == 1 ? Colors.black : Colors.grey,
               ),
               Indicator(
                 color: const Color(0xff845bef),
                 text: 'Family Member Wise Allocation',
                 isSquare: false,
-                size: touchedIndex == 2 ? 18 : 16,
+                size: touchedIndex == 2 ? 10 : 8,
                 textColor: touchedIndex == 2 ? Colors.black : Colors.grey,
               ),
             ],
           ),
-          Spacer(
+          Flexible(
             flex: 1,
-          ),
-          Expanded(
-            flex: 4,
             child: AspectRatio(
               aspectRatio: 1,
               child: PieChart(
@@ -80,13 +78,12 @@ class PieChartSample1State extends State {
               ),
             ),
           ),
-          Spacer(
-            flex: 1,
-          )
         ],
       ),
     );
   }
+
+  double graphSize = 50;
 
   List<PieChartSectionData> showingSections() {
     return List.generate(
@@ -105,7 +102,7 @@ class PieChartSample1State extends State {
               color: color0.withOpacity(opacity),
               value: 30,
               title: '',
-              radius: 60,
+              radius: graphSize,
               titleStyle: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -120,7 +117,7 @@ class PieChartSample1State extends State {
               color: color1.withOpacity(opacity),
               value: 40,
               title: '',
-              radius: 65,
+              radius: graphSize + 5,
               titleStyle: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -135,7 +132,7 @@ class PieChartSample1State extends State {
               color: color2.withOpacity(opacity),
               value: 30,
               title: '',
-              radius: 60,
+              radius: graphSize,
               titleStyle: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

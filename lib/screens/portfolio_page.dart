@@ -9,6 +9,7 @@ import 'package:fundsup/widgets/cards/fixed_deposit.dart';
 import 'package:fundsup/widgets/cards/general_insurance.dart';
 import 'package:fundsup/widgets/cards/life_insurance.dart';
 import 'package:fundsup/widgets/cards/mutual_funds.dart';
+import 'package:fundsup/widgets/cards/search_funds.dart';
 import 'package:fundsup/widgets/custom_card.dart';
 import 'package:fundsup/widgets/headers/main_header.dart';
 import 'package:fundsup/widgets/pie_chart.dart';
@@ -20,13 +21,23 @@ class PortfolioPage extends StatefulWidget {
   State<PortfolioPage> createState() => _PortfolioPageState();
 }
 
-class _PortfolioPageState extends State<PortfolioPage> {
+class _PortfolioPageState extends State<PortfolioPage>
+    with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
   double space = 15;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = TabController(length: 5, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-      padding: EdgeInsets.symmetric(horizontal: 12),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,101 +45,47 @@ class _PortfolioPageState extends State<PortfolioPage> {
           MainHeader(),
           BondCard(),
           //Mutual Funds
-          SizedBox(
-            height: space,
-          ),
           //search bar
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 5,
-                ),
-                child: Container(
-                  height: 40,
-                  child: TextField(
-                    maxLines: 1,
-                    style: TextStyle(
-                      fontSize: 14,
-                    ),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(60),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Colors.grey,
-                      ),
-                      labelText: "Search",
-                    ),
-                  ),
-                ),
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Chip(
-                      label: Text(
-                        "All",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ),
-                    SizedBox(
-                      width: space,
-                    ),
-                    Chip(
-                      label: Text("Mutual Funds"),
-                    ),
-                    SizedBox(
-                      width: space,
-                    ),
-                    Chip(
-                      label: Text("Fixed Deposits"),
-                    ),
-                    SizedBox(
-                      width: space,
-                    ),
-                    Chip(
-                      label: Text("Life Insurance"),
-                    ),
-                    SizedBox(
-                      width: space,
-                    ),
-                    Chip(
-                      label: Text("General Insurance"),
-                    ),
-                  ],
-                ),
-              )
-            ],
+          SearchFunds(tabController: _tabController),
+          //tab bar
+          Container(
+            width: double.infinity,
+            height: 400,
+            child: TabBarView(
+              children: [
+                //Mutual Funds
+                Text("All"),
+                MutualFunds(),
+                //Fixed Deposits
+                FixedDeposit(),
+                //General Insurance
+                //Life Insurance
+                LifeInsurance(),
+                GeneralInsurance(),
+                //Pie Chart
+              ],
+              controller: _tabController,
+            ),
           ),
-
-          MutualFunds(),
-          //Fixed Deposit
-
-          SizedBox(
-            height: space,
-          ),
-          FixedDeposit(),
-          //Life Insurance
-
-          SizedBox(
-            height: space,
-          ),
-          LifeInsurance(),
-          //General Life Insurance
-
-          SizedBox(
-            height: space,
-          ),
-          GeneralInsurance(),
+          // MutualFunds(),
+          // //Fixed Deposit
+          //
+          // SizedBox(
+          //   height: space,
+          // ),
+          // FixedDeposit(),
+          // //Life Insurance
+          //
+          // SizedBox(
+          //   height: space,
+          // ),
+          // LifeInsurance(),
+          // //General Life Insurance
+          //
+          // SizedBox(
+          //   height: space,
+          // ),
+          // GeneralInsurance(),
           SizedBox(
             height: space,
           ),

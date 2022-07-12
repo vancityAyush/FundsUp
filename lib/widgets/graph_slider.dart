@@ -2,7 +2,6 @@
  * Created by : Ayush Kumar
  * Created on : 09-07-2022
  */
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
@@ -22,36 +21,20 @@ class GraphSlider extends StatefulWidget {
 class _GraphSliderState extends State<GraphSlider> {
   int touchedIndex = 0;
   List<int> items = [0, 1, 2];
-  CarouselController _controller = CarouselController();
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // CarouselSlider(
-        //   carouselController: _controller,
-        //   options: CarouselOptions(
-        //     height: 300.0,
-        //     aspectRatio: 8 / 4,
-        //     viewportFraction: 1,
-        //   ),
-        //   items: [
-        //     for (int i = 0; i < 4; i++)
-        //       CustomCard(
-        //         header: Text(
-        //           "Fund Allocation",
-        //           style: headerStyle,
-        //         ),
-        //         child: PieChartSample1(),
-        //       ),
-        //   ],
-        // ),
         GFCarousel(
+          scrollPhysics: BouncingScrollPhysics(),
+          enableInfiniteScroll: false,
           viewportFraction: 1.0,
-          aspectRatio: 8 / 7,
+          // aspectRatio: 5 / 4,
+          height: 250,
           items: items
               .map((e) => CustomCard(
                     header: Text(
-                      "Fund Allocation",
+                      "Fund Allocation $e",
                       style: headerStyle,
                     ),
                     child: PieChartSample1(),
@@ -65,6 +48,10 @@ class _GraphSliderState extends State<GraphSlider> {
         ),
         DotsIndicator(
           dotsCount: items.length,
+          decorator: DotsDecorator(
+            color: Colors.grey,
+            activeColor: greenColor,
+          ),
           position: double.parse(touchedIndex.toString()),
         ),
       ],

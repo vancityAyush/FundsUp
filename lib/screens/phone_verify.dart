@@ -7,6 +7,7 @@ import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/widgets/gradient_button.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/style.dart';
 
 class PhoneVerify extends StatefulWidget {
   PhoneVerify({Key? key}) : super(key: key);
@@ -26,13 +27,12 @@ class _PhoneVerifyState extends State<PhoneVerify> {
         child: SingleChildScrollView(
           child: Container(
             width: screenWidth(context),
-            height: screenHeight(context),
+            height: screenHeight(context) - 100,
             padding: sidePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(height: 24.0),
                 Image.asset(
                   "assets/phone.png",
                   alignment: Alignment.center,
@@ -40,7 +40,7 @@ class _PhoneVerifyState extends State<PhoneVerify> {
                 RichText(
                   text: TextSpan(
                     text: "Phone Verification",
-                    style: Theme.of(context).textTheme.headline1,
+                    style: BigHeaderStyle.copyWith(fontSize: 20),
                     children: [
                       TextSpan(
                         text: "\n\n",
@@ -48,7 +48,10 @@ class _PhoneVerifyState extends State<PhoneVerify> {
                       TextSpan(
                         text:
                             "We need to register your phone number before getting started!",
-                        style: Theme.of(context).textTheme.headline3,
+                        style: BigHeaderStyle.copyWith(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ],
                   ),
@@ -57,7 +60,7 @@ class _PhoneVerifyState extends State<PhoneVerify> {
                   duration: const Duration(milliseconds: 300),
                   child: isCodeSent
                       ? buildOtpTextField()
-                      : buildPhoneNumberInput(),
+                      : buildPhoneNumberInput2(),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -97,19 +100,19 @@ class _PhoneVerifyState extends State<PhoneVerify> {
                             },
                             child: Text(
                               "Edit Phone Number ?",
-                              style: Theme.of(context).textTheme.headline5,
+                              style: headerStyle.copyWith(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                           TextButton(
                             onPressed: () {},
                             child: Text(
                               "Send again",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline5!
-                                  .copyWith(
-                                    color: Theme.of(context).primaryColor,
-                                  ),
+                              style: headerStyle.copyWith(
+                                fontSize: 18,
+                              ),
                             ),
                           )
                         ],
@@ -117,7 +120,6 @@ class _PhoneVerifyState extends State<PhoneVerify> {
                     ),
                   ],
                 ),
-                SizedBox(height: 24.0),
               ],
             ),
           ),
@@ -131,6 +133,20 @@ class _PhoneVerifyState extends State<PhoneVerify> {
       margin: EdgeInsets.symmetric(horizontal: 16.0),
       length: 4,
       fieldWidth: 40,
+      fieldStyle: FieldStyle.box,
+      onCompleted: (String value) {
+        print(value);
+      },
+    );
+  }
+
+  Widget buildPhoneNumberInput2() {
+    return OTPTextField(
+      // margin: EdgeInsets.symmetric(horizontal: 16.0),
+      outlineBorderRadius: 20.0,
+      style: headerStyle,
+      length: 10,
+      contentPadding: EdgeInsets.symmetric(),
       onCompleted: (String value) {
         print(value);
       },
@@ -140,7 +156,7 @@ class _PhoneVerifyState extends State<PhoneVerify> {
   InternationalPhoneNumberInput buildPhoneNumberInput() {
     return InternationalPhoneNumberInput(
       hintText: "Enter your phone number",
-      textStyle: Theme.of(context).textTheme.headline6,
+      textStyle: headerStyle,
       onInputChanged: (value) {
         print(value);
       },

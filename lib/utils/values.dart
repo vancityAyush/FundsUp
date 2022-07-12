@@ -6,8 +6,8 @@ import 'package:fundsup/models/maturity_value.dart';
  * Created on : 11-06-2022
  */
 final CurrentValueData data = CurrentValueData(
-  currentValue: "14,00,000",
-  invested: "7,00,00",
+  currentValue: "14,00,00,000",
+  invested: "7,00,00,000",
   allTimeReturn: "7,00,000",
   oneDayReturn: "-5,000",
   percentXIRR: "48,86",

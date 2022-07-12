@@ -4,6 +4,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/screens/generate_ecas_page.dart';
+import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/utils/widget_helper.dart';
 
 class ImportEcasPage extends StatelessWidget {
@@ -14,6 +15,7 @@ class ImportEcasPage extends StatelessWidget {
     return Scaffold(
       appBar: InvestAppBar(context),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -23,11 +25,7 @@ class ImportEcasPage extends StatelessWidget {
                 SizedBox(height: 20),
                 Text(
                   "Import your existing mutual fund portfolio and manage your existing investment on fundsUp",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xffA09A9A),
-                  ),
+                  style: headerStyle,
                 ),
                 SizedBox(height: 30),
                 generateEcasButton(
@@ -53,16 +51,24 @@ class ImportEcasPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    Icon(Icons.add),
-                    Text("Add Email"),
+                    Icon(
+                      Icons.add,
+                    ),
+                    Text(
+                      "Add Email",
+                      style: bodyText,
+                    ),
                     Spacer(),
-                    Text("( OTP on mail id )"),
+                    Text(
+                      "( OTP on mail id )",
+                      style: bodyText,
+                    ),
                   ],
                 ),
                 SizedBox(height: 20),
-                T1(
+                Text(
                   "FAQs",
-                  color: Color(0xffA1A3A2),
+                  style: headerStyle,
                 ),
                 FaqContainer(faq: "1. What is CAS?"),
                 FaqContainer(faq: "2. How CAS is being generated?"),
@@ -87,20 +93,12 @@ class ImportEcasPage extends StatelessWidget {
         children: [
           Text(
             faq,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
-            ),
+            style: subHeader,
           ),
           SizedBox(height: 5),
           Text(
             ans,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: Color(0xff9B9B9B),
-            ),
+            style: bodyText2,
           )
         ],
       ),
@@ -124,34 +122,31 @@ class ImportEcasPage extends StatelessWidget {
         ),
         leading: Icon(
           Icons.email,
+          color: blueColor,
         ),
         title: Text(
           email,
           maxLines: 1,
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
-            color: Theme.of(context).primaryColorLight,
-          ),
+          style: bodyText.copyWith(color: greenColor),
         ),
         subtitle: Text(
           last,
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Color(0xffA09A9A),
-          ),
+          style: bodyText3,
         ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              Icons.delete,
-              color: Color(0xffA09A9A),
+            IconButton(
+              icon: Icon(
+                Icons.delete,
+                color: Colors.red,
+                size: 20,
+              ),
+              onPressed: () {},
             ),
             SizedBox(width: 5),
             //Button to generate ecas statement
-            MaterialButton(
+            TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -161,16 +156,8 @@ class ImportEcasPage extends StatelessWidget {
                 );
               },
               child: Text(
-                "Generate e CAS",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 8,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              color: Theme.of(context).primaryColorLight,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                "Generate",
+                style: bodyText2,
               ),
             ),
           ],

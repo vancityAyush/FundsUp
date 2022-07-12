@@ -4,9 +4,8 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
-import 'package:fundsup/utils/values.dart';
-import 'package:fundsup/widgets/custom_card.dart';
-import 'package:fundsup/widgets/grids/current_value_grid.dart';
+import 'package:fundsup/widgets/grids/current_value_grid2.dart';
+import 'package:fundsup/widgets/title_grid.dart';
 
 class MutualFunds extends StatelessWidget {
   const MutualFunds({
@@ -16,27 +15,19 @@ class MutualFunds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 1,
-      color: grey2,
+      elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(round),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 8,
+        padding: const EdgeInsets.only(
+          top: 10,
         ),
         child: Column(
           children: [
-            Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(round),
-              ),
+            Container(
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 5,
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
                 child: Row(
                   children: [
                     SizedBox(
@@ -58,27 +49,34 @@ class MutualFunds extends StatelessWidget {
                 ),
               ),
             ),
-            CustomCard(
-              header: Text(
-                "Axis Long Term Equity Fund (G)",
-                style: subHeader,
-              ),
-              child: CurrentValueGrid(data),
+            Divider(
+              color: Colors.grey,
+              thickness: 1,
             ),
-            CustomCard(
-              header: Text(
-                "HDFC Short Term Debt Fund (G)",
-                style: subHeader,
-              ),
-              child: CurrentValueGrid(data),
+            TitleGridCard(
+              child: DataGrid(),
+              title: "Axis Long Term Equity Fund (G)",
             ),
-            CustomCard(
-              header: Text(
-                "Total Mutual Funds Wealth",
-                style: headerStyle2,
-              ),
-              child: CurrentValueGrid(data),
+            Divider(
+              color: Colors.grey,
+              thickness: 1,
             ),
+            TitleGridCard(
+              child: DataGrid(),
+              title: "HDFC Short Term Debt Fund (G)",
+            ),
+            Divider(
+              color: Colors.grey,
+              thickness: 1,
+              height: 0,
+            ),
+            TitleGridCard(
+              titleColor: blueColor,
+              bottomBorder: round,
+              color: Colors.grey[200],
+              child: DataGrid(),
+              title: "Total Mutual Funds Wealth",
+            )
           ],
         ),
       ),

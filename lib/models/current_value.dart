@@ -21,12 +21,12 @@ class CurrentValueData {
     this.dateTime,
   });
 
-  String get current => "Rs. $currentValue";
-  String get mutual => "Rs. $mutual";
-  String get all => "Rs. $allTimeReturn";
-  String get one => "Rs. $oneDayReturn";
-  String get XIRR => "+ $percentXIRR% XIRR";
-  String get nXIRR => "-$negativePercentXIRR%";
+  String get current => "Rs.$currentValue";
+  String get mutual => "Rs.$mutual";
+  String get all => "Rs.$allTimeReturn";
+  String get one => "Rs.$oneDayReturn";
+  String get XIRR => "| + $percentXIRR% XIRR";
+  String get nXIRR => "| -$negativePercentXIRR%";
   String get date {
     if (dateTime != null)
       return "( as on ${dateTime!.day}/${dateTime!.month}/${dateTime!.year})";

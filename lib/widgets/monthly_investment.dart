@@ -4,7 +4,6 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
-import 'package:fundsup/utils/widget_helper.dart';
 import 'package:fundsup/widgets/grids/grid_card.dart';
 
 class MonthlyInvestment extends StatelessWidget {
@@ -24,7 +23,7 @@ class MonthlyInvestment extends StatelessWidget {
             children: [
               Text(
                 "Monthly Investment",
-                style: headerStyle,
+                style: headerStyle2,
               ),
               Text(
                 "Funds Up+ External",
@@ -34,36 +33,49 @@ class MonthlyInvestment extends StatelessWidget {
           ),
           Text(
             "19,994",
-            style: headerStyle2,
+            style: headerStyle2.copyWith(
+              color: greenColor,
+            ),
           )
         ],
       ),
       columns: [
         [
-          T2(
+          Text(
             "External investments",
-            fontWeight: FontWeight.w600,
+            style: gridTextBold,
           ),
-          T3("SIPs  "),
-          T3("6"),
-          T2(
+          Text(
+            "SIPs  6",
+            style: gridText,
+          ),
+          Text(
             "FundsUp Investments",
-            fontWeight: FontWeight.w600,
+            style: gridTextBold,
           ),
-          T3("SIPs & STPs"),
-          T3("0"),
-          T3("Schedule"),
-          T3("0"),
+          Text(
+            "SIPs & STPs 0",
+            style: gridText,
+          ),
+          Text("Schedule 0", style: gridText),
         ],
         [
-          T2(""),
-          T3("Monthly Total"),
-          T3("19994"),
-          T2(""),
-          T3("In progress"),
-          T3("0"),
-          T3("In progress"),
-          T3("0"),
+          Text(
+            "Monthly Total",
+            style: gridTextBold,
+          ),
+          Text(
+            "19994",
+            style: gridText,
+          ),
+          Text(
+            "In progress 0",
+            style: gridText,
+          ),
+          Text(
+            "In progress 0",
+            style: gridText,
+          ),
         ],
       ],
     );

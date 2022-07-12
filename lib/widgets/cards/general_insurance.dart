@@ -4,9 +4,8 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
-import 'package:fundsup/utils/values.dart';
-import 'package:fundsup/widgets/custom_card.dart';
-import 'package:fundsup/widgets/grids/current_value_grid.dart';
+import 'package:fundsup/widgets/grids/current_value_grid2.dart';
+import 'package:fundsup/widgets/title_grid.dart';
 
 class GeneralInsurance extends StatelessWidget {
   const GeneralInsurance({
@@ -17,91 +16,70 @@ class GeneralInsurance extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 1,
-      color: grey2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(round),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 8,
-        ),
-        child: Column(
-          children: [
-            Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(round),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 5,
-                ),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Image.asset(
-                      "assets/icons/bonds.png",
-                      width: 30,
-                      height: 30,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "General Insurances",
-                      style: headerStyle,
-                    ),
-                  ],
-                ),
-              ),
+      child: Column(
+        children: [
+          Card(
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(round),
             ),
-            CustomCard(
-              header: Text(
-                "Life Insurance Corporation of India [Policy No.]",
-                maxLines: 1,
-                style: subHeader,
-              ),
-              child: CurrentValueGrid(data),
-            ),
-            CustomCard(
-              header: Text(
-                "HDFC Life [Policy No.",
-                style: subHeader,
-              ),
-              child: CurrentValueGrid(data),
-            ),
-            CustomCard(
-              header: Text(
-                "Total Life Insurances",
-                style: headerStyle2,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 5,
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "No. Of LI",
-                    style: gridTextBold,
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Image.asset(
+                    "assets/icons/bonds.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 10,
                   ),
                   Text(
-                    "2",
-                    style: gridTextBold,
-                  ),
-                  Text(
-                    "Yearly Premium",
-                    style: gridTextBold,
-                  ),
-                  Text(
-                    "Rs. 24,00,000",
-                    style: gridTextBold,
+                    "General Insurances",
+                    style: headerStyle,
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          Divider(
+            color: Colors.grey,
+            thickness: 1,
+          ),
+          TitleGridCard(
+            child: DataGrid(),
+            title: "Life Insurance Corporation of India [Policy No.]",
+          ),
+          Divider(
+            color: Colors.grey,
+            thickness: 1,
+          ),
+          TitleGridCard(
+            child: DataGrid(),
+            title: "HDFC Life [Policy No.]",
+          ),
+          Divider(
+            color: Colors.grey,
+            thickness: 1,
+            height: 0,
+          ),
+          TitleGridCard(
+            titleColor: blueColor,
+            bottomBorder: round,
+            color: Colors.grey[200],
+            child: DataGrid(),
+            title: "Total Life Insurances",
+          ),
+        ],
       ),
     );
   }

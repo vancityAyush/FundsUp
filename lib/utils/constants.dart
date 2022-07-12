@@ -12,21 +12,30 @@ Color secondaryColor = const Color.fromRGBO(48, 70, 111, 1);
 Color blueColor = const Color.fromRGBO(42, 69, 122, 1);
 Color blueColorLight = const Color.fromRGBO(62, 93, 165, 1.0);
 Color greenColor = const Color(0xff00B852);
-Color greyColor = Color(0xffC6BEBE);
+Color greyColor = Colors.black54;
 Color grey2 = Colors.white70;
 DateFormat dateFormat = DateFormat("dd/MM/yyyy");
-final TextStyle headerStyle = TextStyle(
+
+final TextStyle BigHeaderStyle = TextStyle(
   color: secondaryColor,
-  fontWeight: FontWeight.bold,
+  fontWeight: FontWeight.w800,
   fontSize: 18,
 );
+final TextStyle headerStyle = TextStyle(
+  color: secondaryColor,
+  fontWeight: FontWeight.w600,
+  fontSize: 15,
+);
 final TextStyle headerStyle2 = headerStyle.copyWith(
-  fontSize: 16,
+  fontWeight: FontWeight.w600,
 );
 final TextStyle subHeader = TextStyle(
-  // color: Colors.black,
   fontWeight: FontWeight.w600,
-  fontSize: 14,
+  fontSize: 12,
+);
+final BorderSide borderSide = BorderSide(
+  color: Colors.grey,
+  width: 1,
 );
 final TextStyle linkStyle = TextStyle(
   color: secondaryColor,
@@ -35,8 +44,28 @@ final TextStyle linkStyle = TextStyle(
   height: 1.5,
 );
 
+final TextStyle bodyText = TextStyle(
+  fontSize: 12,
+);
+final TextStyle bodyText2 = TextStyle(
+  fontSize: 11,
+);
+final TextStyle bodyText3 = TextStyle(
+  fontSize: 10,
+);
+final TextStyle bodyTextGrey = bodyText.copyWith(
+  color: greyColor,
+);
+final TextStyle bodyTextGrey2 = bodyText2.copyWith(
+  color: greyColor,
+);
+final TextStyle bodyTextGrey3 = bodyText3.copyWith(
+  color: greyColor,
+);
+
 final TextStyle gridText = TextStyle(
   fontSize: 10,
+  color: Colors.black,
 );
 final TextStyle gridTextBold = gridText.copyWith(fontWeight: FontWeight.w600);
 final TextStyle gridTextGreen = gridTextBold.copyWith(color: Colors.green);
