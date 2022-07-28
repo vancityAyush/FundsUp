@@ -36,7 +36,7 @@ class _SearchFundsState extends State<SearchFunds> {
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
-                vertical: 8,
+                vertical: 10,
               ),
               child: Container(
                 height: 40,
@@ -65,11 +65,14 @@ class _SearchFundsState extends State<SearchFunds> {
             labelColor: greenColor,
             unselectedLabelColor: blueColor,
             isScrollable: true,
-            tabs: funds.map((e) {
-              return Tab(
-                text: e,
-              );
-            }).toList(),
+            tabs: funds.map(
+              (e) {
+                return Tab(
+                  text: e,
+                  height: 27,
+                );
+              },
+            ).toList(),
           ),
           // Container(
           //   height: 50,

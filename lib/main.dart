@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fundsup/screens/intro_screen.dart';
-import 'package:fundsup/screens/kyc_screen.dart';
-import 'package:fundsup/screens/landing_page.dart';
-import 'package:fundsup/screens/pan_card_screen.dart';
-import 'package:fundsup/screens/phone_verify.dart';
-import 'package:fundsup/screens/splash_screen.dart';
+import 'package:fundsup/screens/login/intro_screen.dart';
+import 'package:fundsup/screens/login/kyc_screen.dart';
+import 'package:fundsup/screens/login/pan_card_screen.dart';
+import 'package:fundsup/screens/login/phone_verify.dart';
+import 'package:fundsup/screens/login/splash_screen.dart';
+import 'package:fundsup/screens/tabs/landing_page.dart';
 import 'package:fundsup/utils/constants.dart';
 
 void main() {

@@ -10,6 +10,12 @@ class TrackExt extends StatelessWidget {
   const TrackExt({
     Key? key,
   }) : super(key: key);
+  final List<Map<String, String>> data = const [
+    {'image': 'mf_cas', 'title': 'MF CAS'},
+    {'image': 'epf', 'title': 'FD'},
+    {'image': 'ppf', 'title': 'LI'},
+    {'image': 'nps', 'title': 'GI'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class TrackExt extends StatelessWidget {
         children: [
           Text(
             "Explore the below options to reach the next level",
-            style: gridText,
+            style: gridText.copyWith(color: Colors.black54),
           ),
           SizedBox(
             height: 20,
@@ -33,26 +39,40 @@ class TrackExt extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              for (int i = 0; i < 4; i++)
+              for (int i = 0; i < data.length; i++)
                 MaterialButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  minWidth: 10,
-                  height: 50,
+                  minWidth:
+                      (MediaQuery.of(context).size.width - 100) / data.length,
                   color: Colors.grey[200],
-                  elevation: 5,
+                  elevation: 1,
                   onPressed: () {},
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.add,
-                        color: Theme.of(context).primaryColorLight,
-                      ),
-                      Text(
-                        "Ecas",
-                      )
-                    ],
+                  child: SizedBox.square(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Image.asset(
+                          'assets/${data[i]['image']}.png',
+                          width: 30,
+                          height: 30,
+                          fit: BoxFit.contain,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          data[i]['title'] ?? "",
+                          style: subHeader,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
             ],

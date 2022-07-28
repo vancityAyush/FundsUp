@@ -3,7 +3,7 @@
  * Created on : 06-06-2022
  */
 import 'package:flutter/material.dart';
-import 'package:fundsup/screens/second_report_screen.dart';
+import 'package:fundsup/screens/tabs/second_report_screen.dart';
 import 'package:fundsup/utils/constants.dart';
 
 class ReportScreen extends StatelessWidget {

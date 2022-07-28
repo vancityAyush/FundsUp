@@ -18,7 +18,7 @@ class BondCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       header: Text(
-        "James Bond",
+        "James Bond".toUpperCase(),
         style: headerStyle.copyWith(
           fontSize: 20,
         ),

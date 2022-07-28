@@ -59,7 +59,7 @@ class CurrentValueGrid extends StatelessWidget {
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
               "Invested",

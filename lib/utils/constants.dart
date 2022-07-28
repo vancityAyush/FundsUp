@@ -23,14 +23,14 @@ final TextStyle BigHeaderStyle = TextStyle(
 );
 final TextStyle headerStyle = TextStyle(
   color: secondaryColor,
-  fontWeight: FontWeight.w600,
+  fontWeight: FontWeight.w500,
   fontSize: 15,
 );
 final TextStyle headerStyle2 = headerStyle.copyWith(
   fontWeight: FontWeight.w600,
 );
 final TextStyle subHeader = TextStyle(
-  fontWeight: FontWeight.w600,
+  fontWeight: FontWeight.w500,
   fontSize: 12,
 );
 final BorderSide borderSide = BorderSide(
@@ -65,7 +65,7 @@ final TextStyle bodyTextGrey3 = bodyText3.copyWith(
 
 final TextStyle gridText = TextStyle(
   fontSize: 10,
-  color: Colors.black,
+  color: Color(0xFF343333),
 );
 final TextStyle gridTextBold = gridText.copyWith(fontWeight: FontWeight.w600);
 final TextStyle gridTextGreen = gridTextBold.copyWith(color: Colors.green);

@@ -2,18 +2,20 @@
  * Created by : Ayush Kumar
  * Created on : 02-06-2022
  */
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fundsup/screens/home_page.dart';
-import 'package:fundsup/screens/invest_screen.dart';
-import 'package:fundsup/screens/portfolio_page.dart';
-import 'package:fundsup/screens/profile_page.dart';
-import 'package:fundsup/screens/report_screen.dart';
+import 'package:fundsup/screens/tabs/home_page.dart';
+import 'package:fundsup/screens/tabs/invest_screen.dart';
+import 'package:fundsup/screens/tabs/portfolio_page.dart';
+import 'package:fundsup/screens/tabs/profile_page.dart';
+import 'package:fundsup/screens/tabs/report_screen.dart';
 import 'package:fundsup/utils/constants.dart';
-import 'package:fundsup/widgets/logo_widget.dart';
+import 'package:fundsup/utils/widget_helper.dart';
+import 'package:fundsup/widgets/floating_buttons.dart';
 
 class LandingPage extends StatefulWidget {
   int selectedIndex;
-  LandingPage({this.selectedIndex = 1});
+  LandingPage({this.selectedIndex = 0});
 
   @override
   State<LandingPage> createState() => _LandingPageState();
@@ -27,30 +29,17 @@ class _LandingPageState extends State<LandingPage> {
     ReportScreen(),
     ProfilePage(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(241, 243, 244, 1),
-      appBar: AppBar(
-        title: LogoWidget(
-          scale: 1.2,
-        ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: myAppBar(),
       body: SafeArea(
         child: _pages[widget.selectedIndex],
       ),
-      floatingActionButton: widget.selectedIndex == 1
-          ? FloatingActionButton(
-              onPressed: () {
-                //TODO take to search page
-              },
-              child: Icon(Icons.search),
-              backgroundColor: greenColor,
-            )
-          : Container(),
+      floatingActionButton:
+          widget.selectedIndex == 1 ? FloatingButtons() : null,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: widget.selectedIndex,

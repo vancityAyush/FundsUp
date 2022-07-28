@@ -4,6 +4,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/screens/generate_ecas_page.dart';
+import 'package:fundsup/screens/login/upload_doc.dart';
 import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/utils/widget_helper.dart';
 
@@ -59,10 +60,30 @@ class ImportEcasPage extends StatelessWidget {
                       style: bodyText,
                     ),
                     Spacer(),
+                  ],
+                ),
+                Row(
+                  children: [
                     Text(
-                      "( OTP on mail id )",
-                      style: bodyText,
+                      "Already have eCAS statement?",
+                      style: bodyText.copyWith(color: blueColor),
                     ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => UploadDocumentPage(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Upload",
+                        style: bodyText.copyWith(
+                          color: greenColor,
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(height: 20),

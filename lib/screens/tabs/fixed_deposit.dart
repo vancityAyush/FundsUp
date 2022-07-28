@@ -4,12 +4,12 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/widget_helper.dart';
-import 'package:fundsup/widgets/cards/life_insurance.dart';
+import 'package:fundsup/widgets/cards/fixed_deposit.dart';
 import 'package:fundsup/widgets/drawer_header.dart';
 import 'package:fundsup/widgets/logo_widget.dart';
 
-class LifeInsurancePage extends StatelessWidget {
-  const LifeInsurancePage({Key? key}) : super(key: key);
+class FixedDepositPage extends StatelessWidget {
+  const FixedDepositPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,9 @@ class LifeInsurancePage extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              LifeInsurance(),
+              FixedDepositTab(
+                isEditable: true,
+              ),
             ],
           ),
         ),

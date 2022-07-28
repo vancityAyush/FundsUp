@@ -4,6 +4,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
+import 'package:fundsup/widgets/logo_widget.dart';
 
 Widget gradientArrowWidget() {
   return Container(
@@ -57,6 +58,31 @@ TextStyle textTheme(
   return base!.copyWith(
     color: color,
     fontWeight: fontWeight,
+  );
+}
+
+AppBar myAppBar() {
+  return AppBar(
+    title: LogoWidget(
+      scale: 1.2,
+    ),
+    centerTitle: true,
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+    actions: [
+      Image.asset(
+        "assets/xls.png",
+        width: 20,
+        height: 20,
+      ),
+      SizedBox(width: 6),
+      Image.asset(
+        "assets/pdf.png",
+        width: 20,
+        height: 20,
+      ),
+      SizedBox(width: 10),
+    ],
   );
 }
 

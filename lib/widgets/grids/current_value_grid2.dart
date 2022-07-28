@@ -10,12 +10,10 @@ class DataGrid extends StatelessWidget {
   const DataGrid({
     Key? key,
     this.data = const [
-      {'Current Value ': 'Rs.14,00,00,000'},
-      {'Invested ': 'Rs.7,00,00,000'},
-      {'All Time Return ': 'Rs.7,00,00,000'},
-      {'One Day Return ': 'Rs.5,000'},
-      {'': '+48.86% XIRR', 'color': Colors.green},
-      {'': '-0.76%', 'color': Colors.red}
+      {'Current Value': '₹ 1400,00,00,000'},
+      {'Invested': '₹ 7,00,00,000'},
+      {'All Time Return': '₹ 7,00,00,000'},
+      {'XIRR': '+48.86% ', 'color': Colors.green},
     ],
   }) : super(key: key);
 
@@ -24,9 +22,9 @@ class DataGrid extends StatelessWidget {
     return GridView.count(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      crossAxisCount: 5,
+      crossAxisCount: 4,
       childAspectRatio: 5,
-      crossAxisSpacing: 5,
+      crossAxisSpacing: 18,
       children: [
         for (var i = 0; i < data.length; i++) ...getText(i),
       ],
@@ -38,14 +36,18 @@ class DataGrid extends StatelessWidget {
       Text(
         data[index].keys.first,
         style: gridText,
+        maxLines: 1,
       ),
       Text(
         data[index].values.first,
+        textAlign: TextAlign.end,
+        maxLines: 1,
         style: gridText.copyWith(
-          color: data[index]['color'] ?? Colors.black,
+          color: data[index]['color'] ?? gridText.color,
+          fontSize: data[index]['fontSize'] ?? gridText.fontSize,
         ),
       ),
-      if (index % 2 == 0) Text("")
+      // if (index % 2 == 0) Text("")
     ];
   }
 }

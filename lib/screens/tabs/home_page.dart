@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/widgets/cards/bond_card.dart';
 import 'package:fundsup/widgets/custom_card.dart';
-import 'package:fundsup/widgets/graph_slider.dart';
+import 'package:fundsup/widgets/graphs/graph_slider.dart';
 import 'package:fundsup/widgets/monthly_investment.dart';
 import 'package:fundsup/widgets/track_ext.dart';
 
@@ -45,7 +45,6 @@ class _HomePageState extends State<HomePage> {
     "Top Searched",
     "Investor's Choice",
     "Top Ranked",
-    "FundsUp Recommended",
     "Category-Wise",
     "Fund House Wise"
   ];
@@ -70,7 +69,7 @@ class _HomePageState extends State<HomePage> {
           CustomCard(
               header: Text(
                 "Get Investment Ready: Your Investment account is not ready. Please add the remaining details and start investing with FundsUp instantly",
-                style: bodyText2,
+                style: bodyTextGrey2,
               ),
               elevation: 2,
               child: Column(
@@ -155,25 +154,59 @@ class _HomePageState extends State<HomePage> {
           CustomCard(
             header: Column(
               children: [
-                Text(
-                  "Explore Funds",
-                  style: headerStyle.copyWith(
-                    color: blueColor,
-                  ),
-                  //search bar
+                Row(
+                  children: [
+                    Text(
+                      "Explore Funds",
+                      style: headerStyle.copyWith(
+                        color: blueColor,
+                      ),
+                      //search bar
+                    ),
+                    //search button
+                    Spacer(),
+                    Icon(
+                      Icons.search,
+                      color: greenColor,
+                    ),
+                  ],
                 ),
               ],
             ),
-            child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemBuilder: (context, index) => Text(
-                "${funds[index]}",
-                style: bodyText2.copyWith(
-                  height: 1.2,
-                ),
-              ),
-              itemCount: funds.length,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (int i = 0; i < funds.length; i++)
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.person_outline,
+                        color: greenColor,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "${funds[i]}",
+                        style: bodyText.copyWith(
+                          height: 1.2,
+                        ),
+                      ),
+                      Spacer(),
+                      Visibility(
+                        visible: i == funds.length - 1,
+                        child: Text(
+                          "Watchlist",
+                          textAlign: TextAlign.end,
+                          style: bodyText.copyWith(
+                            height: 1.2,
+                            color: greenColor,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+              ],
             ),
           ),
         ],

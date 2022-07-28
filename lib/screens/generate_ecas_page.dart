@@ -3,7 +3,6 @@
  * Created on : 09-06-2022
  */
 import 'package:flutter/material.dart';
-import 'package:fundsup/screens/upload_doc.dart';
 import 'package:fundsup/utils/widget_helper.dart';
 
 class GenerateEcasPage extends StatelessWidget {
@@ -41,53 +40,43 @@ class GenerateEcasPage extends StatelessWidget {
   }
 
   Widget customTile(BuildContext context, String text) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => UploadDocumentPage(),
-          ),
-        );
-      },
-      child: Card(
-        margin: EdgeInsets.symmetric(vertical: 10),
-        color: Color(0xffEFECEC),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          children: [
-            Card(
-              margin: EdgeInsets.only(left: 8, top: 10, bottom: 10),
-              elevation: 1,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      color: Color(0xffEFECEC),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Card(
+            margin: EdgeInsets.only(left: 8, top: 10, bottom: 10),
+            elevation: 1,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/doc.png",
+                height: 50,
+                fit: BoxFit.contain,
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset(
-                  "assets/doc.png",
-                  height: 50,
-                  fit: BoxFit.contain,
+            ),
+          ),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                text,
+                maxLines: 3,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  text,
-                  maxLines: 3,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

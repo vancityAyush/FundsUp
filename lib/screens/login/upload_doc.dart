@@ -18,17 +18,16 @@ class UploadDocumentPage extends StatelessWidget {
           child: Column(
             children: [
               Material(
-                elevation: 1,
+                elevation: 2,
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColorLight,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
                     "Upload Your Latest Mutual Fund eCAS statement received from CAMS mailback Server with subject Consollidated Account Statement- CAMS Mailback Request",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black54,
                       height: 1.2,
                     ),
                   ),
@@ -56,13 +55,16 @@ class UploadDocumentPage extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
-                              Image.asset(
-                                "assets/import.png",
-                                height: 70,
-                                width: 70,
+                              Icon(
+                                Icons.file_upload,
+                                color: Colors.white,
                               ),
                               Text(
                                 "Upload",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),
                               )
                             ],
                           ),
