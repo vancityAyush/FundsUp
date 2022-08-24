@@ -22,7 +22,13 @@ class _PanCardScreenState extends State<PanCardScreen> {
   final _dobFormKey = GlobalKey<FormState>();
   final RegExp _panRegex = RegExp(r'^[A-Z]{5}[0-9]{4}[A-Z]{1}$');
 
-  TextEditingController dobController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  FocusNode dateFocusNode = FocusNode();
+  TextEditingController monthController = TextEditingController();
+  FocusNode monthFocusNode = FocusNode();
+
+  TextEditingController yearController = TextEditingController();
+  FocusNode yearFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +45,11 @@ class _PanCardScreenState extends State<PanCardScreen> {
               }
               break;
             case 2:
-              if (_dobFormKey.currentState!.validate()) {
-                _dobFormKey.currentState!.save();
+              dob = DateTime(
+                  int.parse(yearController.text!),
+                  int.parse(monthController.text!),
+                  int.parse(dateController.text!));
+              if (dob != null) {
                 Navigator.pushNamed(context, '/kyc');
               }
           }
@@ -168,55 +177,121 @@ class _PanCardScreenState extends State<PanCardScreen> {
         padding: sidePadding,
         child: Form(
           key: _dobFormKey,
-          child: TextFormField(
-            onSaved: (value) {
-              dob = dateFormat.parse(value!);
-            },
-            controller: dobController,
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'Please enter your Date Of Birth';
-              }
-              return null;
-            },
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(10),
-              FilteringTextInputFormatter.allow(RegExp(r'[/0-9]')),
-            ],
-            maxLines: 1,
-            keyboardType: TextInputType.datetime,
-            textAlign: TextAlign.center,
-            decoration: InputDecoration(
-              suffixIcon: IconButton(
-                icon: Icon(Icons.calendar_today),
-                onPressed: () {
-                  showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(1900),
-                    lastDate: DateTime(2100),
-                  ).then((value) {
-                    if (value != null) {
-                      dob = value;
-                      dobController.text = dateFormat.format(dob!);
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: TextFormField(
+                  focusNode: dateFocusNode,
+                  controller: dateController,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(2),
+                    FilteringTextInputFormatter.allow(RegExp(r'[/0-9]')),
+                  ],
+                  maxLines: 1,
+                  onChanged: (value) {
+                    if (value!.length == 2) {
+                      dateFocusNode.unfocus();
+                      FocusScope.of(context).requestFocus(monthFocusNode);
                     }
-                  });
-                },
+                  },
+                  keyboardType: TextInputType.datetime,
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: "DD",
+                    hintStyle: headerStyle,
+                    suffixText: "/",
+                    border: UnderlineInputBorder(),
+                    errorStyle: headerStyle.copyWith(color: Colors.red),
+                  ),
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 5),
+                ),
               ),
-              hintText: "DD/MM/YYYY",
-              hintStyle: TextStyle(
-                  fontSize: 26.0,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffC4C4C4),
-                  letterSpacing: 5),
-              border: UnderlineInputBorder(),
-              errorStyle: Theme.of(context)
-                  .textTheme
-                  .headline3!
-                  .copyWith(color: Colors.red),
-            ),
-            style: TextStyle(
-                fontSize: 26.0, fontWeight: FontWeight.w500, letterSpacing: 5),
+              Expanded(
+                child: TextFormField(
+                  focusNode: monthFocusNode,
+                  controller: monthController,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(2),
+                    FilteringTextInputFormatter.allow(RegExp(r'[/0-9]')),
+                  ],
+                  maxLines: 1,
+                  keyboardType: TextInputType.datetime,
+                  textAlign: TextAlign.center,
+                  onChanged: (value) {
+                    if (value.isEmpty) {
+                      monthFocusNode.unfocus();
+                      FocusScope.of(context).requestFocus(dateFocusNode);
+                    }
+                    if (value!.length == 2) {
+                      yearFocusNode.requestFocus();
+                    }
+                  },
+                  decoration: InputDecoration(
+                    hintText: "MM",
+                    hintStyle: headerStyle,
+                    suffixText: "/",
+                    border: UnderlineInputBorder(),
+                    errorStyle: headerStyle.copyWith(color: Colors.red),
+                  ),
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 5),
+                ),
+              ),
+              Expanded(
+                child: TextFormField(
+                  focusNode: yearFocusNode,
+                  controller: yearController,
+                  onChanged: (value) {
+                    if (value.isEmpty) {
+                      yearFocusNode.unfocus();
+                      FocusScope.of(context).requestFocus(monthFocusNode);
+                    }
+                    if (value!.length == 4) {
+                      yearFocusNode.unfocus();
+                    }
+                  },
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(4),
+                    FilteringTextInputFormatter.allow(RegExp(r'[/0-9]')),
+                  ],
+                  maxLines: 1,
+                  keyboardType: TextInputType.datetime,
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintStyle: headerStyle,
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.calendar_today),
+                      onPressed: () {
+                        showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(1900),
+                          lastDate: DateTime(2100),
+                        ).then((value) {
+                          if (value != null) {
+                            dob = value;
+                            dateController.text = dob!.day.toString();
+                            monthController.text = dob!.month.toString();
+                            yearController.text = dob!.year.toString();
+                          }
+                        });
+                      },
+                    ),
+                    hintText: "YYYY",
+                  ),
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 5),
+                ),
+              ),
+            ],
           ),
         ),
       ),

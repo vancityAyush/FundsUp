@@ -3,10 +3,9 @@
  * Created on : 06-06-2022
  */
 import 'package:flutter/material.dart';
+import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/utils/widget_helper.dart';
 import 'package:fundsup/widgets/cards/fixed_deposit.dart';
-import 'package:fundsup/widgets/drawer_header.dart';
-import 'package:fundsup/widgets/logo_widget.dart';
 
 class FixedDepositPage extends StatelessWidget {
   const FixedDepositPage({Key? key}) : super(key: key);
@@ -14,23 +13,18 @@ class FixedDepositPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(241, 243, 244, 1),
+      appBar: myAppBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: greenColor,
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              SizedBox(height: 12),
-              LogoWidget(),
-              SizedBox(height: 12),
-              myDrawerHeader(),
-              SizedBox(
-                height: 15,
-              ),
-              FixedDepositTab(
-                isEditable: true,
-              ),
-            ],
-          ),
+          child: FixedDepositTab(),
         ),
       ),
     );

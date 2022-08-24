@@ -2,6 +2,7 @@
  * Created by : Ayush Kumar
  * Created on : 09-06-2022
  */
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fundsup/screens/generate_ecas_page.dart';
 import 'package:fundsup/screens/login/upload_doc.dart';
@@ -163,7 +164,29 @@ class ImportEcasPage extends StatelessWidget {
                 color: Colors.red,
                 size: 20,
               ),
-              onPressed: () {},
+              onPressed: () {
+                showCupertinoDialog<void>(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoAlertDialog(
+                    title: Text("Delete"),
+                    content: Text("Are you sure you want to delete this?"),
+                    actions: <Widget>[
+                      CupertinoDialogAction(
+                        child: Text("Cancel"),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      CupertinoDialogAction(
+                        child: Text("Delete"),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
             SizedBox(width: 5),
             //Button to generate ecas statement

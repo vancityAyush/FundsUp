@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:fundsup/screens/tabs/fixed_deposit.dart';
 import 'package:fundsup/utils/constants.dart';
+import 'package:fundsup/utils/widget_helper.dart';
 import 'package:fundsup/widgets/grids/current_value_grid2.dart';
 import 'package:fundsup/widgets/title_grid.dart';
 
@@ -43,12 +44,7 @@ class FDCard extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FixedDepositPage(),
-                ),
-              );
+              goToNextPage(context, FixedDepositPage());
             },
             child: Card(
               elevation: 0,
@@ -88,12 +84,7 @@ class FDCard extends StatelessWidget {
           ),
           TitleGridCard.withSbutitle(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FixedDepositPage(),
-                ),
-              );
+              goToNextPage(context, FixedDepositPage());
             },
             child: DataGrid(
               data: [
@@ -114,12 +105,7 @@ class FDCard extends StatelessWidget {
           ),
           TitleGridCard.withSbutitle(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FixedDepositPage(),
-                ),
-              );
+              goToNextPage(context, FixedDepositPage());
             },
             child: DataGrid(
               data: [

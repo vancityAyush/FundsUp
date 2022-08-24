@@ -3,6 +3,7 @@
  * Created on : 09-06-2022
  */
 import 'package:flutter/material.dart';
+import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/utils/widget_helper.dart';
 
 class UploadDocumentPage extends StatelessWidget {
@@ -22,12 +23,12 @@ class UploadDocumentPage extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
                     "Upload Your Latest Mutual Fund eCAS statement received from CAMS mailback Server with subject Consollidated Account Statement- CAMS Mailback Request",
                     style: TextStyle(
-                      color: Colors.black54,
+                      color: greyColor,
                       height: 1.2,
                     ),
                   ),
@@ -42,34 +43,42 @@ class UploadDocumentPage extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Image.asset("assets/pdf.png"),
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 15, bottom: 12),
+                            child: Image.asset(
+                              "assets/pdf.png",
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Positioned(
+                            right: 0,
+                            bottom: 0,
+                            child: Icon(
+                              Icons.file_upload,
+                              color: blueColor,
+                              size: 30,
+                            ),
+                          ),
+                        ],
+                      ),
                       Spacer(),
-                      Card(
-                        margin: EdgeInsets.only(right: 10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        elevation: 1,
-                        color: Color(0xC4C4C4),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.file_upload,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                "Upload",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                ),
-                              )
-                            ],
+                      MaterialButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Upload",
+                          style: TextStyle(
+                            color: blueColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

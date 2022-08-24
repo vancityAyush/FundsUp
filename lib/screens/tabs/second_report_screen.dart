@@ -7,14 +7,8 @@ import 'package:fundsup/utils/constants.dart';
 import 'package:get/get.dart';
 
 class ReportScreen2 extends StatelessWidget {
-  ReportScreen2({Key? key}) : super(key: key);
-  final List<String> options = const [
-    "Type wise (Equity, Debt, Hybrid",
-    "Fund wise (Axis Bluechip Fund, SBI Small Cap Fund etc.",
-    "Sub-type wise (ELSS, Large Cap, Focused Fund, Sectoral etc.)",
-    "AMC wise (Axis, SBI, Canara Robeco etc.)",
-    "Date wise",
-  ];
+  ReportScreen2({Key? key, required this.options}) : super(key: key);
+  final List<String> options;
   final currentInd = 0.obs;
 
   @override
@@ -42,21 +36,21 @@ class ReportScreen2 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 elevation: 2,
-                child: Obx(() => RadioListTile<int>(
-                      activeColor: greenColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      title: Text(
-                        options[index],
-                        style: bodyText,
-                      ),
-                      value: index,
-                      groupValue: currentInd.value,
-                      onChanged: (int? value) {
-                        currentInd.value = value ?? -1;
-                      },
-                    )),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  title: Center(
+                    child: Text(
+                      options[index],
+                      style: bodyText,
+                    ),
+                  ),
+                  onTap: () {
+                    currentInd.value = index;
+                    Navigator.pop(context);
+                  },
+                ),
               );
             },
             itemCount: options.length,

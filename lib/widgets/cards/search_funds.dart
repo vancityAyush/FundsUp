@@ -20,7 +20,6 @@ class _SearchFundsState extends State<SearchFunds> {
   final double space = 10;
   int currentIndex = 0;
   final List<String> funds = [
-    "All",
     'Mutual Funds',
     'Fixed Deposit',
     'Life Insurance',

@@ -33,9 +33,10 @@ class VerifyWidget extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: Theme.of(context).textTheme.headline3!.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               IconButton(
                 onPressed: onEdit,
@@ -48,9 +49,11 @@ class VerifyWidget extends StatelessWidget {
           ),
           Text(
             subtitle,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
-                  color: Colors.black54,
-                ),
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           SizedBox(
             height: 20,

@@ -34,7 +34,7 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(241, 243, 244, 1),
-      appBar: myAppBar(),
+      appBar: myAppBar(showIcon: widget.selectedIndex == 1),
       body: SafeArea(
         child: _pages[widget.selectedIndex],
       ),

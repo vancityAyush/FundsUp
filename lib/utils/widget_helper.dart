@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/widgets/logo_widget.dart';
+import 'package:get/get.dart';
 
 Widget gradientArrowWidget() {
   return Container(
@@ -30,6 +31,13 @@ Widget gradientArrowWidget() {
         size: 32.0,
       ),
     ),
+  );
+}
+
+void goToNextPage(BuildContext context, Widget page) {
+  Get.to(
+    page,
+    transition: Transition.cupertino,
   );
 }
 
@@ -61,28 +69,29 @@ TextStyle textTheme(
   );
 }
 
-AppBar myAppBar() {
+AppBar myAppBar({bool showIcon = false}) {
   return AppBar(
     title: LogoWidget(
       scale: 1.2,
     ),
-    centerTitle: true,
     elevation: 0,
     backgroundColor: Colors.transparent,
-    actions: [
-      Image.asset(
-        "assets/xls.png",
-        width: 20,
-        height: 20,
-      ),
-      SizedBox(width: 6),
-      Image.asset(
-        "assets/pdf.png",
-        width: 20,
-        height: 20,
-      ),
-      SizedBox(width: 10),
-    ],
+    actions: showIcon
+        ? [
+            Image.asset(
+              "assets/xls.png",
+              width: 20,
+              height: 20,
+            ),
+            SizedBox(width: 6),
+            Image.asset(
+              "assets/pdf.png",
+              width: 20,
+              height: 20,
+            ),
+            SizedBox(width: 10),
+          ]
+        : null,
   );
 }
 

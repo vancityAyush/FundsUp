@@ -15,8 +15,6 @@ class LifeInsurancePage extends StatefulWidget {
 }
 
 class _LifeInsurancePageState extends State<LifeInsurancePage> {
-  final List<Widget> list = [LifeInsuranceTab()];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,18 +24,14 @@ class _LifeInsurancePageState extends State<LifeInsurancePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: greenColor,
         onPressed: () {
-          setState(() {
-            list.add(LifeInsuranceTab());
-          });
+          setState(() {});
         },
         child: Icon(Icons.add),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [...list],
-          ),
+          child: LifeInsuranceTab(),
         ),
       ),
     );

@@ -3,7 +3,6 @@
  * Created on : 03-06-2022
  */
 import 'package:flutter/material.dart';
-import 'package:fundsup/widgets/cards/all_tab.dart';
 import 'package:fundsup/widgets/cards/bond_card.dart';
 import 'package:fundsup/widgets/cards/fixed_deposit.dart';
 import 'package:fundsup/widgets/cards/general_insurance.dart';
@@ -29,7 +28,7 @@ class _PortfolioPageState extends State<PortfolioPage>
   void initState() {
     // TODO: implement initState
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -43,9 +42,10 @@ class _PortfolioPageState extends State<PortfolioPage>
           SearchFunds(tabController: _tabController),
           Expanded(
             child: TabBarView(
+              physics: BouncingScrollPhysics(),
               controller: _tabController,
               children: [
-                AllTab(),
+                // AllTab(),
                 MutualFundsTab(),
                 //Fixed Deposits
                 FixedDepositTab(),
@@ -76,7 +76,7 @@ class _PortfolioPageState extends State<PortfolioPage>
         TabBarView(
           children: [
             //Mutual Funds
-            Text("All"),
+            // Text("All"),
             MutualFundsTab(),
             //Fixed Deposits
             FixedDepositTab(),

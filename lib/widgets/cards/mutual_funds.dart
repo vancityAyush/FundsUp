@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:fundsup/screens/tabs/mutual_funds_page.dart';
 import 'package:fundsup/utils/constants.dart';
+import 'package:fundsup/utils/widget_helper.dart';
 import 'package:fundsup/widgets/grids/current_value_grid2.dart';
 import 'package:fundsup/widgets/title_grid.dart';
 
@@ -70,12 +71,7 @@ class MFCard extends StatelessWidget {
             child: DataGrid(),
             title: "Axis Long Term Equity Fund (G)",
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MutualFundsPage(),
-                ),
-              );
+              goToNextPage(context, MutualFundsPage());
             },
           ),
           Divider(
@@ -87,12 +83,7 @@ class MFCard extends StatelessWidget {
             child: DataGrid(),
             title: "HDFC Short Term Debt Fund (G)",
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MutualFundsPage(),
-                ),
-              );
+              goToNextPage(context, MutualFundsPage());
             },
           ),
           Divider(

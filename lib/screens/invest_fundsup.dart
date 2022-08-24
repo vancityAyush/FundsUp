@@ -3,7 +3,10 @@
  * Created on : 09-06-2022
  */
 import 'package:flutter/material.dart';
+import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/utils/widget_helper.dart';
+
+import '../widgets/custom_card.dart';
 
 class InvestFundsUpPage extends StatelessWidget {
   const InvestFundsUpPage({Key? key}) : super(key: key);
@@ -43,53 +46,95 @@ class InvestFundsUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: InvestAppBar(context, title: "Invest through FundsUp"),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              SizedBox(height: 20),
-              Text(
-                "Explore and start investing in Mutual Funds of your choice through FundsUp",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffA09A9A),
-                ),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Search",
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Theme.of(context).primaryColorLight,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            CustomCard(
+              header: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Explore Funds",
+                        style: headerStyle.copyWith(
+                          color: blueColor,
+                        ),
+                        //search bar
+                      ),
+                      //search button
+                      Spacer(),
+                      Icon(
+                        Icons.search,
+                        color: greenColor,
+                      ),
+                    ],
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
+                ],
               ),
-              SizedBox(height: 30),
-              ListView.separated(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => getTile(
-                    title: titles[index],
-                    subtitle: descriptions[index],
-                    image: images[index],
-                    color: colors[index]),
-                separatorBuilder: (context, index) {
-                  return Divider(
-                    color: Colors.black,
-                  );
-                },
-                itemCount: titles.length,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (int i = 0; i < titles.length; i++)
+                    getTile(
+                      title: titles[i],
+                      image: images[i],
+                      color: colors[i],
+                      subtitle: descriptions[i],
+                    ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+      // SafeArea(
+      //   child: Padding(
+      //     padding: const EdgeInsets.symmetric(horizontal: 20),
+      //     child: Column(
+      //       children: [
+      //         SizedBox(height: 20),
+      //         Text(
+      //           "Explore and start investing in Mutual Funds of your choice through FundsUp",
+      //           style: TextStyle(
+      //             fontSize: 18,
+      //             fontWeight: FontWeight.w500,
+      //             color: Color(0xffA09A9A),
+      //           ),
+      //         ),
+      //         SizedBox(height: 10),
+      //         TextField(
+      //           decoration: InputDecoration(
+      //             hintText: "Search",
+      //             prefixIcon: Icon(
+      //               Icons.search,
+      //               color: Theme.of(context).primaryColorLight,
+      //             ),
+      //             border: OutlineInputBorder(
+      //               borderRadius: BorderRadius.circular(20),
+      //             ),
+      //           ),
+      //         ),
+      //         SizedBox(height: 30),
+      //         ListView.separated(
+      //           shrinkWrap: true,
+      //           physics: NeverScrollableScrollPhysics(),
+      //           itemBuilder: (context, index) => getTile(
+      //               title: titles[index],
+      //               subtitle: descriptions[index],
+      //               image: images[index],
+      //               color: colors[index]),
+      //           separatorBuilder: (context, index) {
+      //             return Divider(
+      //               color: Colors.black,
+      //             );
+      //           },
+      //           itemCount: titles.length,
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 
@@ -102,21 +147,21 @@ class InvestFundsUpPage extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
-          fontSize: 18,
+          fontSize: 14,
           fontWeight: FontWeight.w600,
         ),
       ),
       subtitle: Text(
         subtitle,
         style: TextStyle(
-          fontSize: 16,
+          fontSize: 12,
           fontWeight: FontWeight.w500,
           color: Color(0xffA09A9A),
         ),
       ),
       leading: Container(
-        height: 50,
-        width: 50,
+        height: 40,
+        width: 40,
         decoration: BoxDecoration(
           color: color,
           shape: BoxShape.circle,
@@ -124,7 +169,7 @@ class InvestFundsUpPage extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: Image.asset(
           "assets/$image.png",
-          height: 20,
+          height: 12,
           fit: BoxFit.contain,
         ),
       ),

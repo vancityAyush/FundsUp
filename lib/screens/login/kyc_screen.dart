@@ -30,7 +30,10 @@ class KycScreen extends StatelessWidget {
               Text(
                 "Complete Your KYC\n in 5 Mins!",
                 textAlign: TextAlign.start,
-                style: Theme.of(context).textTheme.headline1,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(
                 height: 20,

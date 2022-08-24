@@ -8,12 +8,56 @@ import 'package:fundsup/utils/constants.dart';
 
 class ReportScreen extends StatelessWidget {
   const ReportScreen({Key? key}) : super(key: key);
-  final List<String> reports = const [
-    "ELESS REPORT",
-    "CAPITAL GAINS REPORT",
-    "CURRENT HOLDINGS REPORT",
-    "TRANSACTIONS REPORT",
-    "TAX HARVESTING",
+  final List<Map<String, dynamic>> reports = const [
+    {
+      "title": "ELSS REPORT",
+      "options": <String>["2021-2022", "2022-2023", "2023-2024", "2024-2025"],
+      "date": null
+    },
+    {
+      "title": "CAPITAL GAINS REPORT",
+      "options": <String>[
+        "Type wise (Equity, Debt, Hybrid",
+        "Fund wise (Axis Bluechip Fund, SBI Small Cap Fund etc.",
+        "Sub-type wise (ELSS, Large Cap, Focused Fund, Sectoral etc.)",
+        "AMC wise (Axis, SBI, Canara Robeco etc.)",
+        "Date wise",
+      ],
+      "date": "specific",
+    },
+    {
+      "title": "CURRENT HOLDINGS REPORT",
+      "options": <String>[
+        "Type wise (Equity, Debt, Hybrid",
+        "Fund wise (Axis Bluechip Fund, SBI Small Cap Fund etc.",
+        "Sub-type wise (ELSS, Large Cap, Focused Fund, Sectoral etc.)",
+        "AMC wise (Axis, SBI, Canara Robeco etc.)",
+        "Date wise",
+      ],
+      "date": "range",
+    },
+    {
+      "title": "TRANSACTIONS REPORT",
+      "options": <String>[
+        "Type wise (Equity, Debt, Hybrid)",
+        "Fund wise (Axis Bluechip Fund, SBI Small Cap Fund etc.",
+        "Sub-type wise (ELSS, Large Cap, Focused Fund, Sectoral etc.)",
+        "AMC wise (Axis, SBI, Canara Robeco etc.)",
+        "Date wise",
+      ],
+      "date": "range",
+    },
+    {
+      "title": "TAX HARVESTING",
+      "options": <String>[
+        "Type wise (Equity, Debt, Hybrid)",
+        "Fund wise (Axis Bluechip Fund, SBI Small Cap Fund etc.",
+        "Sub-type wise (ELSS, Large Cap, Focused Fund, Sectoral etc.)",
+        "AMC wise (Axis, SBI, Canara Robeco etc.)",
+        "Date wise",
+      ],
+      "date": "range",
+    },
   ];
 
   final List<String> desc = const [
@@ -56,14 +100,53 @@ class ReportScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(10),
-                      onTap: () {
-                        showModalBottomSheet(
+                      onTap: () async {
+                        await showModalBottomSheet(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
                           context: context,
-                          builder: (context) => ReportScreen2(),
+                          builder: (context) => ReportScreen2(
+                            options: reports[index]['options'],
+                          ),
                         );
+                        if (reports[index]['date'] == "specific") {
+                          showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            context: context,
+                            builder: (context) => DatePickerDialog(
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2020),
+                              lastDate: DateTime(2025),
+                            ),
+                          );
+                        }
+                        if (reports[index]['date'] == "specific") {
+                          showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            context: context,
+                            builder: (context) => DatePickerDialog(
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2020),
+                              lastDate: DateTime(2025),
+                            ),
+                          );
+                        } else if (reports[index]['date'] == "range") {
+                          showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            context: context,
+                            builder: (context) => DateRangePickerDialog(
+                              firstDate: DateTime(2020),
+                              lastDate: DateTime(2025),
+                            ),
+                          );
+                        }
                         // showMaterialModalBottomSheet(
                         //   context: context,
                         //   builder: (context) => ReportScreen2(),
@@ -79,7 +162,7 @@ class ReportScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              reports[index],
+                              reports[index]['title'],
                               textAlign: TextAlign.center,
                               style: headerStyle2.copyWith(
                                 color: greenColor,

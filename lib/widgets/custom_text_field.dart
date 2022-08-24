@@ -27,9 +27,10 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         labelText: label,
-        hintStyle: Theme.of(context).textTheme.headline4!.copyWith(
-              color: Colors.black26,
-            ),
+        hintStyle: TextStyle(
+          fontSize: 14,
+          color: Colors.grey,
+        ),
         labelStyle: Theme.of(context).textTheme.headline6,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32),

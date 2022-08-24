@@ -29,7 +29,10 @@ class ConfirmDetailsScreen extends StatelessWidget {
               ),
               Text(
                 "Confirm Your Details",
-                style: Theme.of(context).textTheme.headline1,
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.start,
               ),
               SizedBox(
@@ -37,9 +40,11 @@ class ConfirmDetailsScreen extends StatelessWidget {
               ),
               Text(
                 "To ensure that the details you entered are correct, please validate your email address and mobile number",
-                style: Theme.of(context).textTheme.headline3!.copyWith(
-                      color: Colors.black54,
-                    ),
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               VerifyWidget(
                 title: "Mobile Number",
