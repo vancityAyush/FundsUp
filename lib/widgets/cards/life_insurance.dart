@@ -85,14 +85,20 @@ class LICard extends StatelessWidget {
             },
             child: DataGrid(
               data: [
-                {'Maturity Value ': 'Rs.14,00,000'},
-                {'Premium ': 'Rs.12,00,000'},
+                {'Maturity Value ': '₹.14,00,000'},
+                {'Premium ': '₹.12,00,000'},
                 {'Policy Type ': 'MoneyBack'},
                 {'Frequency ': 'M/Q/HY/Y'},
                 {'Payment Due Date ': '01/07/2023'},
                 {'Renewal Date': '01/10/2023'},
-                {'': '25 days to pay', 'color': Colors.red, 'fontSize': 9.0},
-                {'': '115 days to pay', 'color': Colors.green, 'fontSize': 9.0}
+                {
+                  'Pay In': '25 days',
+                  'color': Colors.red,
+                },
+                {
+                  'Renew In': '115 days',
+                  'color': Colors.green,
+                }
               ],
             ),
             title: "Life Insurance Corporation of India [Policy No.]",
@@ -113,14 +119,14 @@ class LICard extends StatelessWidget {
             },
             child: DataGrid(
               data: [
-                {'Maturity Value ': 'Rs.0'},
-                {'Premium ': 'Rs.12,00,000'},
+                {'Maturity Value ': '₹.0'},
+                {'Premium ': '₹.12,00,000'},
                 {'Policy Type ': 'Term'},
                 {'Frequency ': 'M/Q/HY/Y'},
                 {'Payment Due Date ': '01/07/2023'},
                 {'Renewal Date': '01/10/2023'},
-                {'': '555 days to pay', 'color': Colors.green, 'fontSize': 9.0},
-                {'': '50 days to pay', 'color': Colors.green, 'fontSize': 9.0}
+                {'Pay In': '55 days', 'color': Colors.green},
+                {'Renew In': '50 days', 'color': Colors.green}
               ],
             ),
             title: "HDFC Life [Policy No.]",
@@ -137,7 +143,7 @@ class LICard extends StatelessWidget {
             child: DataGrid(
               data: [
                 {'No. of LI': '2'},
-                {'Yearly Premium': 'Rs.24,00,000'}
+                {'Yearly Premium': '₹.24,00,000'}
               ],
             ),
             title: "Total Life Insurances",

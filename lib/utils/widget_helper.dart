@@ -69,6 +69,8 @@ TextStyle textTheme(
   );
 }
 
+const heightSpace4 = SizedBox(height: 4);
+
 AppBar myAppBar({bool showIcon = false}) {
   return AppBar(
     title: LogoWidget(

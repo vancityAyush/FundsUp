@@ -9,17 +9,23 @@ class GridCard extends StatelessWidget {
   final Widget header;
   final double paddingAll;
   final double padding;
+  final double? innerPadding;
+  final double elevation;
+  final MainAxisAlignment align;
   GridCard({
     required this.columns,
     required this.header,
     this.paddingAll = 12,
     this.padding = 0,
+    this.innerPadding,
+    this.elevation = 3,
+    this.align = MainAxisAlignment.spaceBetween,
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 3,
+      elevation: elevation,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -35,7 +41,7 @@ class GridCard extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: padding),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: align,
                 children: [
                   for (var items in columns)
                     Column(
@@ -45,7 +51,7 @@ class GridCard extends StatelessWidget {
                         for (var item in items)
                           Padding(
                             padding: EdgeInsets.symmetric(
-                              vertical: 4,
+                              vertical: innerPadding ?? 4,
                             ),
                             child: item,
                           )

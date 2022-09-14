@@ -151,14 +151,14 @@ class InvestFundsUpPage extends StatelessWidget {
           fontWeight: FontWeight.w600,
         ),
       ),
-      subtitle: Text(
-        subtitle,
-        style: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
-          color: Color(0xffA09A9A),
-        ),
-      ),
+      // subtitle: Text(
+      //   subtitle,
+      //   style: TextStyle(
+      //     fontSize: 12,
+      //     fontWeight: FontWeight.w500,
+      //     color: Color(0xffA09A9A),
+      //   ),
+      // ),
       leading: Container(
         height: 40,
         width: 40,

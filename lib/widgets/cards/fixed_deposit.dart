@@ -88,14 +88,14 @@ class FDCard extends StatelessWidget {
             },
             child: DataGrid(
               data: [
-                {'Maturity Value ': 'Rs.14,00,000'},
-                {'Invested ': 'Rs.12,00,000'},
+                {'Maturity Value ': '₹.14,00,000'},
+                {'Invested ': '₹.12,00,000'},
                 {'Interest Rate ': '7.50%', 'color': Colors.green},
                 {'Maturity Date ': '01/09/2023'},
               ],
             ),
             title: "HDFC Bank Ltd. [XXXX-XXXX-XXXX-XXXX]",
-            subtitle: "85 days to renew",
+            subtitle: "Renew In 85 days",
             subtitleColor: Colors.green,
           ),
           Divider(
@@ -109,14 +109,14 @@ class FDCard extends StatelessWidget {
             },
             child: DataGrid(
               data: [
-                {'Maturity Value ': 'Rs.14,00,000'},
-                {'Invested ': 'Rs.12,00,000'},
+                {'Maturity Value ': '₹.14,00,000'},
+                {'Invested ': '₹.12,00,000'},
                 {'Interest Rate ': '7.50%', 'color': Colors.green},
                 {'Maturity Date ': '01/07/2023'},
               ],
             ),
             title: "Axis Bank Ltd. [XXXX-XXXX-XXXX-XXXX]",
-            subtitle: "24 days to renew",
+            subtitle: "Renew In 24 days",
             subtitleColor: Colors.red,
           ),
           Divider(
@@ -130,9 +130,9 @@ class FDCard extends StatelessWidget {
             color: Colors.grey[200],
             child: DataGrid(
               data: [
-                {'Maturity Value ': 'Rs.28,00,000'},
-                {'Invested ': 'Rs.24,00,000'},
-                {'All time return ': 'Rs.4,00,000'},
+                {'Maturity Value ': '₹.28,00,000'},
+                {'Invested ': '₹.24,00,000'},
+                {'All time return ': '₹.4,00,000'},
                 {'XIRR ': '+16.67%', 'color': Colors.green},
               ],
             ),

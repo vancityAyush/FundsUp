@@ -17,8 +17,8 @@ class MaturityValueData {
     required this.daysRemaining,
   });
 
-  String get maturity => "Rs. $maturityValue";
-  String get invested => "Rs. $investedValue";
+  String get maturity => "₹. $maturityValue";
+  String get invested => "₹. $investedValue";
   String get interest => "$interestRate% XIRR";
   String get daysLeft => "$daysRemaining days to renew";
 }

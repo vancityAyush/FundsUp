@@ -10,9 +10,9 @@ class DataGrid extends StatelessWidget {
   const DataGrid({
     Key? key,
     this.data = const [
-      {'Current Value': '₹ 1400,00,00,000'},
+      {'Current Value': '₹ 99,99,99,999'},
       {'Invested': '₹ 7,00,00,000'},
-      {'All Time Return': '₹ 7,00,00,000'},
+      {'Overall Return': '₹7,00,00,000'},
       {'XIRR': '+48.86% ', 'color': Colors.green},
     ],
   }) : super(key: key);
@@ -24,7 +24,7 @@ class DataGrid extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 4,
       childAspectRatio: 5,
-      crossAxisSpacing: 18,
+      crossAxisSpacing: 12,
       children: [
         for (var i = 0; i < data.length; i++) ...getText(i),
       ],
@@ -41,6 +41,7 @@ class DataGrid extends StatelessWidget {
       Text(
         data[index].values.first,
         textAlign: TextAlign.end,
+        overflow: TextOverflow.visible,
         maxLines: 1,
         style: gridText.copyWith(
           color: data[index]['color'] ?? gridText.color,

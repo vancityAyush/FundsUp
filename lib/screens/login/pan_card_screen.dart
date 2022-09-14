@@ -46,9 +46,9 @@ class _PanCardScreenState extends State<PanCardScreen> {
               break;
             case 2:
               dob = DateTime(
-                  int.parse(yearController.text!),
-                  int.parse(monthController.text!),
-                  int.parse(dateController.text!));
+                  int.parse(yearController.text),
+                  int.parse(monthController.text),
+                  int.parse(dateController.text));
               if (dob != null) {
                 Navigator.pushNamed(context, '/kyc');
               }
@@ -190,7 +190,7 @@ class _PanCardScreenState extends State<PanCardScreen> {
                   ],
                   maxLines: 1,
                   onChanged: (value) {
-                    if (value!.length == 2) {
+                    if (value.length == 2) {
                       dateFocusNode.unfocus();
                       FocusScope.of(context).requestFocus(monthFocusNode);
                     }
@@ -226,7 +226,7 @@ class _PanCardScreenState extends State<PanCardScreen> {
                       monthFocusNode.unfocus();
                       FocusScope.of(context).requestFocus(dateFocusNode);
                     }
-                    if (value!.length == 2) {
+                    if (value.length == 2) {
                       yearFocusNode.requestFocus();
                     }
                   },

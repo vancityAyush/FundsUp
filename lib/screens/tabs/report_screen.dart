@@ -61,11 +61,11 @@ class ReportScreen extends StatelessWidget {
   ];
 
   final List<String> desc = const [
-    "Generate the report to view your tax saving investments u/s 80C and save upto Rs. 46800 every year",
+    "Generate the report to view your tax saving investments u/s 80C and save upto ₹. 46800 every year",
     "Generate the report for your LTCG/STCG on your investments which are sold",
     "Generate the report for valuation of your current holdings",
     "Generate the report for your transactions history",
-    "Generate the report to minimize the impact of your LTCG tax and save upto Rs. 10000 every year ",
+    "Generate the report to minimize the impact of your LTCG tax and save upto ₹. 10000 every year ",
   ];
   @override
   Widget build(BuildContext context) {

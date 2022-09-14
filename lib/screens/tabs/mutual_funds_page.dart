@@ -7,7 +7,6 @@ import 'package:fundsup/utils/constants.dart';
 import 'package:fundsup/utils/widget_helper.dart';
 import 'package:fundsup/widgets/floating_buttons.dart';
 import 'package:fundsup/widgets/grids/current_value_grid2.dart';
-import 'package:fundsup/widgets/title_grid.dart';
 
 import '../../widgets/custom_card.dart';
 
@@ -36,7 +35,7 @@ class MutualFundsPage extends StatelessWidget {
       floatingActionButton: FloatingButtons(),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Column(
             children: [
               CustomCard(
@@ -44,34 +43,36 @@ class MutualFundsPage extends StatelessWidget {
                   contentPadding: EdgeInsets.zero,
                   title: Text(
                     "James Bond",
-                  ),
-                  subtitle: RichText(
-                    text: TextSpan(
-                      text: "Family Wealth",
-                      style: Theme.of(context).textTheme.headline5!.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  trailing: Image.asset(
-                    "assets/axis.png",
-                    width: 120,
+                  subtitle: Text(
+                    "Axis Long Term Equity Fund(G)\nFolio No: 123456789",
+                    style: TextStyle(
+                      fontSize: 13,
+                    ),
+                  ),
+                  trailing: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      "assets/axis.png",
+                      width: 120,
+                    ),
                   ),
                 ),
-                child: TitleGridCard(
-                  child: DataGrid(
-                    data: [
-                      {'Current Value ': 'Rs.14,00,000'},
-                      {'Invested ': 'Rs.12,00,000'},
-                      {'All time return ': 'Rs. 7,00,000'},
-                      {'1 Day Return ': 'Rs. - 5,000'},
-                      {'': '+48.86%', 'color': Colors.green},
-                      {'': '-0.73%', 'color': Colors.red},
-                      {'No. of Units': "3161"},
-                      {'Current NAV': "25.6531"}
-                    ],
-                  ),
-                  title: "Axis Long Term Equity Fund(G)",
+                child: DataGrid(
+                  data: [
+                    {'Current Value ': '₹14,00,000'},
+                    {'Invested ': '₹2,00,000'},
+                    {'Overall Return': '₹ 7,00,000'},
+                    {'1 Day Return ': '₹ - 5,000'},
+                    {'': '+48.86%', 'color': Colors.green},
+                    {'': '-0.73%', 'color': Colors.red},
+                    {'No. of Units': "3161"},
+                    {'Current NAV': "25.6531"}
+                  ],
                 ),
               ),
               SizedBox(height: 30),
@@ -98,9 +99,9 @@ class MutualFundsPage extends StatelessWidget {
               ),
               Spacer(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconTextButton("Withdraw", "widthdraw"),
                     IconTextButton("One Time", "one_time"),
@@ -118,16 +119,19 @@ class MutualFundsPage extends StatelessWidget {
     );
   }
 
-  Column IconTextButton(String text, String image) {
-    return Column(
-      children: [
-        Image.asset(
-          "assets/$image.png",
-          height: 30,
-        ),
-        SizedBox(height: 8),
-        T2(text, fontWeight: FontWeight.w600),
-      ],
+  Widget IconTextButton(String text, String image) {
+    return MaterialButton(
+      elevation: 5,
+      color: Colors.grey,
+      highlightColor: greenColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(90),
+      ),
+      onPressed: () {},
+      child: Text(
+        text,
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 
@@ -136,7 +140,7 @@ class MutualFundsPage extends StatelessWidget {
       children: [
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(12.0),
             child: Text(
               text,
               textAlign: TextAlign.center,
@@ -156,7 +160,7 @@ class MutualFundsPage extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(12.0),
             child: Text(
               text2,
               textAlign: TextAlign.center,
