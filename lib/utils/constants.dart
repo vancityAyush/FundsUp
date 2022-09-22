@@ -64,7 +64,7 @@ final TextStyle bodyTextGrey3 = bodyText3.copyWith(
 );
 
 final TextStyle gridText = TextStyle(
-  fontSize: 12,
+  fontSize: 11,
   color: Color(0xFF343333),
 );
 final TextStyle gridTextBold = gridText.copyWith(fontWeight: FontWeight.w600);

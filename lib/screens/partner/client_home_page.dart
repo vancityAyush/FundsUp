@@ -4,11 +4,10 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
-import 'package:fundsup/utils/widget_helper.dart';
+import 'package:fundsup/widgets/card_box.dart';
 import 'package:fundsup/widgets/custom_card.dart';
 import 'package:fundsup/widgets/graphs/category_pie.dart';
 import 'package:fundsup/widgets/grids/grid_card.dart';
-import 'package:fundsup/widgets/title_grid.dart';
 import 'package:get/get.dart';
 
 class ClientHomePage extends StatefulWidget {
@@ -116,24 +115,22 @@ class _ClientHomePageState extends State<ClientHomePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Card(
-            elevation: 3,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: TitleGridCard(
-                child: GridView.count(
-                  shrinkWrap: true,
-                  crossAxisCount: 2,
-                  childAspectRatio: 2.0,
-                  children: [
-                    cardWithText("AUM", "₹ 5,60,00,000"),
-                    cardWithText("56 SIPs", "₹ 5,62,000"),
-                    cardWithText("No of Clients", "5"),
-                    cardWithText("Average SIP Size", "₹ 5,62,000"),
-                  ],
-                ),
-                title: "James Bond"),
+          CardBox(
+            title: "James Bond",
+            data: [
+              {
+                "AUM": "₹ 1,00,000",
+              },
+              {
+                "56 SIPS": "₹ 1,00,000",
+              },
+              {
+                "No of Clients": "56",
+              },
+              {
+                "Average SIP Size": "₹ 1,00,000",
+              },
+            ],
           ),
           SizedBox(
             height: 5,
@@ -182,53 +179,19 @@ class _ClientHomePageState extends State<ClientHomePage> {
                 ),
               );
             },
-            child: GridCard(
-              padding: 0,
-              header: Text(
-                "May 2022 Insights (Current Month Data)",
-                style: headerStyle2,
-              ),
-              innerPadding: 1,
-              columns: [
-                [
-                  Text(
-                    "Month New Lumpsum",
-                    style: gridText,
-                  ),
-                  Text(
-                    "₹.5,60,00,000",
-                    style: gridTextBold,
-                  ),
-                  heightSpace4,
-                  Text(
-                    "Month New Clients",
-                    style: gridText,
-                  ),
-                  Text(
-                    "6",
-                    style: gridTextBold,
-                  ),
-                  heightSpace4,
-                ],
-                [
-                  Text(
-                    "Month New SIPs",
-                    style: gridText,
-                  ),
-                  Text(
-                    "₹. 5,62,000",
-                    style: gridTextBold,
-                  ),
-                  heightSpace4,
-                  Text(
-                    "Month Redemption",
-                    style: gridText,
-                  ),
-                  Text(
-                    "₹. 5,62,000",
-                    style: gridTextBold,
-                  ),
-                ],
+            child: CardBox(
+              title: "May 2022 Insights",
+              data: [
+                {
+                  "Month New Lumpsum": "₹ 1,00,000",
+                },
+                {
+                  "Month New SIPs": "₹ 1,00,000",
+                },
+                {"Month New Clients": "6"},
+                {
+                  "Month Redemption": "₹ 1,00,000",
+                }
               ],
             ),
           ),
@@ -569,149 +532,106 @@ class _ClientHomePageState extends State<ClientHomePage> {
                   "May 2022",
                   style: gridTextBold,
                 ),
-                textWithColor(
+                Text(
                   "₹.25,75,000",
-                  "-33.68%",
+                  style: gridText,
                 ),
-                textWithColor(
+                Text(
                   "₹.75,000",
-                  "+3.68%",
-                  isRed: false,
+                  style: gridText,
                 ),
-                textWithColor(
+                Text(
                   "₹.25,75,000",
-                  "-33.68%",
+                  style: gridText,
                 ),
-                textWithColor(
-                  "4    ",
-                  "+3.69%",
-                  isRed: false,
+                Text(
+                  "4",
+                  style: gridText,
                 ),
+              ],
+              [
+                Text(""),
+                Text(
+                  "-36.5%",
+                  style: gridTextRed,
+                ),
+                Text(
+                  "+10%",
+                  style: gridTextGreen,
+                ),
+                Text("-36.5%", style: gridTextRed),
+                Text("+10%", style: gridTextGreen),
               ],
               [
                 Text(
                   "YTD",
                   style: gridTextBold,
                 ),
-                textWithColor(
+                Text(
                   "₹.25,75,000",
-                  "-33.68%",
+                  style: gridText,
                 ),
-                textWithColor(
+                Text(
                   "₹.75,000",
-                  "+3.68%",
-                  isRed: false,
+                  style: gridText,
                 ),
-                textWithColor(
+                Text(
                   "₹.25,75,000",
-                  "-33.68%",
+                  style: gridText,
                 ),
-                textWithColor(
-                  "4    ",
-                  "+3.69%",
-                  isRed: false,
+                Text(
+                  "4",
+                  style: gridText,
                 ),
+              ],
+              [
+                Text(""),
+                Text(
+                  "-36.5%",
+                  style: gridTextRed,
+                ),
+                Text(
+                  "+10%",
+                  style: gridTextGreen,
+                ),
+                Text("-36.5%", style: gridTextRed),
+                Text("+10%", style: gridTextGreen),
               ],
             ],
           ),
           SizedBox(
             height: 5,
           ),
-          Card(
-            elevation: 3,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Transaction Status",
-                    style: headerStyle,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12),
-                    child: Column(
-                      children: [
-                        getTransactionTile("All Orders", "5"),
-                        heightSpace4,
-                        getTransactionTile("Successful Transactions", "5"),
-                        heightSpace4,
-                        getTransactionTile("Pending Transaction", "5"),
-                        heightSpace4,
-                        getTransactionTile("Rejected", "5"),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  )
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          GridCard(
-            padding: 0,
-            header: Text(
-              "Upcoming Business Opportunities",
-              style: headerStyle2,
-            ),
-            align: MainAxisAlignment.spaceAround,
-            columns: [
-              [
-                cardWithText("External MF Clients", "32", fontSize: 12),
-                cardWithText("External MF Clients", "32", fontSize: 12),
-              ],
-              [
-                cardWithText("Upcoming  FDs", "5", fontSize: 12),
-                cardWithText("Upcoming  FDs", "5", fontSize: 12),
-              ]
+          CardBox(
+            title: "Transaction Status",
+            data: [
+              {"All Orders": "5"},
+              {"Successful Tansactions": "5"},
+              {"Pending Transactions": "5"},
+              {"Rejected Transactions": "5"},
             ],
           ),
           SizedBox(
             height: 5,
           ),
-          Card(
-            elevation: 3,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Client Interactions",
-                    style: headerStyle,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12),
-                    child: Column(
-                      children: [
-                        getTransactionTile("Today's Birthday", "5"),
-                        heightSpace4,
-                        getTransactionTile("Today's Anniversary", "5"),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  )
-                ],
-              ),
-            ),
+          CardBox(
+            title: "Upcoming Business Opportunities",
+            data: [
+              {"External MF Clients": "32"},
+              {"Upcoming FDs": "32"},
+              {"External MF Clients": "32"},
+              {"External MF Clients": "32"},
+            ],
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          CardBox(
+            title: "Client Interactions",
+            data: [
+              {"Today's Birthday": "33"},
+              {"Today's Anniversary": "33"},
+            ],
           ),
           SizedBox(
             height: 5,
