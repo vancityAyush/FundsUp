@@ -4,6 +4,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:fundsup/utils/constants.dart';
+import 'package:fundsup/widgets/card_box.dart';
 import 'package:fundsup/widgets/cards/bond_card.dart';
 import 'package:fundsup/widgets/custom_card.dart';
 import 'package:fundsup/widgets/graphs/graph_slider.dart';
@@ -148,6 +149,29 @@ class _HomePageState extends State<HomePage> {
             height: 5,
           ),
           MonthlyInvestment(),
+          SizedBox(
+            height: 5,
+          ),
+          CardBox(
+            title: "Upcoming Transactions",
+            data: [
+              {"Upcoming FDs": "32"},
+              {"Upcoming GIs": "32"},
+              {"Upcoming LIs": "32"},
+            ],
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          CardBox(
+            title: "Transaction Status",
+            data: [
+              {"All Orders": "5"},
+              {"Successful Tansactions": "5"},
+              {"Pending Transactions": "5"},
+              {"Rejected Transactions": "5"},
+            ],
+          ),
           SizedBox(
             height: 5,
           ),

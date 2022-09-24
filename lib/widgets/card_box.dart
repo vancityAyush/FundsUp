@@ -9,7 +9,16 @@ import '../utils/constants.dart';
 class CardBox extends StatelessWidget {
   final String title;
   final List<Map<String, String>> data;
-  const CardBox({Key? key, required this.title, required this.data})
+  final double? size;
+  final double? fontSize;
+  final double? titleFontSize;
+  const CardBox(
+      {Key? key,
+      required this.title,
+      required this.data,
+      this.size,
+      this.fontSize,
+      this.titleFontSize})
       : super(key: key);
 
   @override
@@ -26,14 +35,14 @@ class CardBox extends StatelessWidget {
           children: [
             Text(
               title,
-              style: headerStyle2,
+              style: headerStyle2.copyWith(fontSize: titleFontSize),
             ),
             GridView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 2.4,
+                childAspectRatio: size ?? 2.4,
               ),
               itemCount: data.length,
               itemBuilder: (context, index) => InkWell(
@@ -57,11 +66,15 @@ class CardBox extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: data[index].keys.first + "\n",
-                            style: gridTextBold,
+                            style: gridTextBold.copyWith(
+                              fontSize: fontSize ?? gridTextBold.fontSize,
+                            ),
                           ),
                           TextSpan(
                             text: data[index].values.first,
-                            style: gridText,
+                            style: gridText.copyWith(
+                              fontSize: fontSize ?? gridText.fontSize,
+                            ),
                           ),
                         ],
                       ),

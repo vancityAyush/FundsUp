@@ -39,8 +39,6 @@ class _LandingPageState extends State<ClientLandingPage> {
       body: SafeArea(
         child: _pages[widget.selectedIndex],
       ),
-      floatingActionButton:
-          widget.selectedIndex == 1 ? FloatingButtons() : null,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: widget.selectedIndex,

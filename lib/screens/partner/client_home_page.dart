@@ -91,7 +91,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
             style: TextStyle(
               fontSize: 10,
               color: Colors.black,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w500,
             ),
           ),
           Text(
@@ -116,6 +116,9 @@ class _ClientHomePageState extends State<ClientHomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           CardBox(
+            size: 2.5,
+            fontSize: 16,
+            titleFontSize: 18,
             title: "James Bond",
             data: [
               {
@@ -170,6 +173,9 @@ class _ClientHomePageState extends State<ClientHomePage> {
                       SizedBox(
                         height: 5,
                       ),
+                      myTile(),
+                      myTile(),
+                      myTile(),
                       myTile(),
                       myTile(),
                       myTile(),
@@ -235,7 +241,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
                               crossAxisCount: 3,
-                              childAspectRatio: 4,
+                              childAspectRatio: 3,
                               crossAxisSpacing: 10,
                               mainAxisSpacing: 10,
                               children: [
@@ -248,16 +254,20 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                   "Monthly Increase",
                                   style: gridTextBold,
                                 ),
-                                Text(
-                                  "New Lump Sum",
-                                  style: gridTextBold,
+                                Container(
+                                  margin: EdgeInsets.all(3),
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  child: Text(
+                                    "New Lump Sum",
+                                    style: gridTextBold,
+                                  ),
                                 ),
                                 Container(
                                   margin: EdgeInsets.all(3),
                                   padding: EdgeInsets.symmetric(vertical: 5),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(round),
+                                    borderRadius: BorderRadius.circular(90),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.2),
@@ -271,8 +281,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(round),
+                                        borderRadius: BorderRadius.circular(90),
                                       ),
                                     ),
                                   ),
@@ -282,7 +291,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                   padding: EdgeInsets.symmetric(vertical: 5),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(round),
+                                    borderRadius: BorderRadius.circular(90),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.2),
@@ -296,37 +305,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(round),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  "New SIP",
-                                  style: gridTextBold,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.all(3),
-                                  padding: EdgeInsets.symmetric(vertical: 5),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(round),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        spreadRadius: 1,
-                                        blurRadius: 1,
-                                        offset: Offset(0, 1),
-                                      ),
-                                    ],
-                                  ),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(round),
+                                        borderRadius: BorderRadius.circular(90),
                                       ),
                                     ),
                                   ),
@@ -334,38 +313,17 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                 Container(
                                   margin: EdgeInsets.all(3),
                                   padding: EdgeInsets.symmetric(vertical: 5),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(round),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        spreadRadius: 1,
-                                        blurRadius: 1,
-                                        offset: Offset(0, 1),
-                                      ),
-                                    ],
+                                  child: Text(
+                                    "New SIP",
+                                    style: gridTextBold,
                                   ),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(round),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  "New ELSS",
-                                  style: gridTextBold,
                                 ),
                                 Container(
                                   margin: EdgeInsets.all(3),
                                   padding: EdgeInsets.symmetric(vertical: 5),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(round),
+                                    borderRadius: BorderRadius.circular(90),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.2),
@@ -379,8 +337,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(round),
+                                        borderRadius: BorderRadius.circular(90),
                                       ),
                                     ),
                                   ),
@@ -390,7 +347,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                   padding: EdgeInsets.symmetric(vertical: 5),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(round),
+                                    borderRadius: BorderRadius.circular(90),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.2),
@@ -404,37 +361,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(round),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  "New SIP",
-                                  style: gridTextBold,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.all(3),
-                                  padding: EdgeInsets.symmetric(vertical: 5),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(round),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        spreadRadius: 1,
-                                        blurRadius: 1,
-                                        offset: Offset(0, 1),
-                                      ),
-                                    ],
-                                  ),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(round),
+                                        borderRadius: BorderRadius.circular(90),
                                       ),
                                     ),
                                   ),
@@ -442,9 +369,17 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                 Container(
                                   margin: EdgeInsets.all(3),
                                   padding: EdgeInsets.symmetric(vertical: 5),
+                                  child: Text(
+                                    "New ELSS",
+                                    style: gridTextBold,
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.all(3),
+                                  padding: EdgeInsets.symmetric(vertical: 5),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(round),
+                                    borderRadius: BorderRadius.circular(90),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.2),
@@ -458,8 +393,87 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(round),
+                                        borderRadius: BorderRadius.circular(90),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.all(3),
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(90),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        spreadRadius: 1,
+                                        blurRadius: 1,
+                                        offset: Offset(0, 1),
+                                      ),
+                                    ],
+                                  ),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(90),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.all(3),
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  child: Text(
+                                    "New SIP",
+                                    style: gridTextBold,
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.all(3),
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(90),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        spreadRadius: 1,
+                                        blurRadius: 1,
+                                        offset: Offset(0, 1),
+                                      ),
+                                    ],
+                                  ),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(90),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.all(3),
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(90),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        spreadRadius: 1,
+                                        blurRadius: 1,
+                                        offset: Offset(0, 1),
+                                      ),
+                                    ],
+                                  ),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(90),
                                       ),
                                     ),
                                   ),
@@ -477,7 +491,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                                     vertical: 8, horizontal: 20),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(round),
+                                  borderRadius: BorderRadius.circular(90),
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.grey.withOpacity(0.2),
@@ -727,6 +741,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Text(
                   "February 2021",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black,
@@ -735,14 +750,14 @@ class _ClientHomePageState extends State<ClientHomePage> {
               ),
             ),
             Expanded(
-                flex: 2,
+                flex: 3,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       VerticalDivider(
-                        color: Colors.black87,
+                        color: Colors.grey,
                         thickness: 2,
                         width: 10,
                       ),
@@ -754,7 +769,7 @@ class _ClientHomePageState extends State<ClientHomePage> {
                         ],
                       ),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           showInfo("Month New SIPs", "₹. 23,000"),
                           showInfo("Month Redemptions ", "₹. 13,00,000"),
